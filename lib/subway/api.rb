@@ -31,8 +31,8 @@ end
 
 #lets see what data is in here for now...
 outages = response.body
-puts outages
-
+x = outages.split("}")
+puts x.length
 
  # request['api_key'] = '365be576f6f24a35b7b226a751b3c476'
  # HTTParty.get('https://api.wmata.com/Incidents.svc/json/ElevatorIncidents')
