@@ -1,6 +1,5 @@
-require "subway/version"
-
-module Subway
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "pry"
+require_relative "subway/cli"
+require_relative "subway/issue"
+require_relative "subway/api"
+require_relative "subway/version"

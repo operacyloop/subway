@@ -1,8 +1,6 @@
 # Subway
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/subway`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem will interact with the Washington DC subway system to get information about escalator and elevator outages. It will allow a user to make requests and get up to the information about where these outages are, the nature of the outages and when they will be fixed. 
 
 ## Installation
 
