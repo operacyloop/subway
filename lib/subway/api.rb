@@ -31,13 +31,19 @@ end
 
 #lets see what data is in here for now...
 outages = response.body
-x = outages.split("}").to_a
+x = outages.split("},").to_a
 puts x.class
 
+
 count = 0
-  while count <= x.length
-    puts x[count]
+
+while count <= x.length
+    issue = x[count].delete! '{}'
     count += 1
+    puts issue
+    puts issue.class
+    puts 
+    puts
   end
 
 
