@@ -6,4 +6,4 @@ require_relative '../lib/subway'
 
 puts "Hello World!"
 
-CLI.testing
+CLI.call

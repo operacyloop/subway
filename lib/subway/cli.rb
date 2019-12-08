@@ -14,10 +14,7 @@ def self.menu
       puts @issues[input.to_i-1] #subtract 1 so can find itin the array
     elsif input == "list"
       list_of_issues
-    end 
-  end 
-     
-  #   # end 
+
   #   # case input 
   #   # when "1"
   #   #   puts "More info on Elevator Issues..."
@@ -26,10 +23,12 @@ def self.menu
   #   # when "list"
   #   #   list_issues
   
+    end 
+  end 
 end 
   
   def self.goodbye 
-   puts "goodbye!"
+   puts "goodbye! Come back later for update escaltor and elevator outages"
   end 
 
     def self.list_of_issues
@@ -37,13 +36,11 @@ end
     end 
     
   # # what follows is a class method and self is refering the class itself (aka the CLI class)...
-    def self.call
-      puts "in the middle of the call method, a class method"
-    end 
     
-     list_of_issues
-     menu
-     goodbye
-  
-
-end
+  def self.call
+    puts "in the middle of the call method, a class method"
+    end 
+    list_of_issues
+    menu
+    goodbye
+  end
