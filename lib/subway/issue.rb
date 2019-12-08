@@ -21,7 +21,8 @@ class Issue
   issue_2.fixedestimate = "Noon on December 30, 2019"
   
   # should return an array [issue_1, issue_2]
-  
+  # puts issue_1
+  # puts issue_2
   end
   
 #   What is an issue

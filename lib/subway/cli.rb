@@ -9,11 +9,16 @@ def self.menu
     
    # #The following is the logic dealing with how to deal with the user input
    # # Also, a string evaluates to zero until it's a string number "8" = 8
- 
+   # # logic needs to be fixed
+   
     if input.to_i > 0 
-      puts @issues[input.to_i-1] #subtract 1 so can find itin the array
+      the_issue = @issues[input.to_i-1] #subtract 1 so can find itin the array
+      puts "#{issue.name}" #all the attributes here
     elsif input == "list"
       list_of_issues
+    else 
+      puts "not what you want"
+   # else 
 
   #   # case input 
   #   # when "1"
@@ -32,7 +37,13 @@ end
   end 
 
     def self.list_of_issues
+     # @issues = issue.current 
+     # @issues.each.with_index(1) do | issue, i | #starts indexing at 1 
+     #  puts "#{i}. #{issue}""
       puts "Current Metrorail Issues:"
+      puts # issue_1
+      puts # issue_2
+      
     end 
     
   # # what follows is a class method and self is refering the class itself (aka the CLI class)...
