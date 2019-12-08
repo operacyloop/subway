@@ -1,4 +1,5 @@
 require 'net/http'
+require 'httparty'
 
 #class API
   
@@ -28,12 +29,14 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme ==  'https
     http.request(request)
 end
 
-outages = response.body.split
+#lets see what data is in here for now...
+outages = response.body
+puts outages
 
-puts outages[0..100]
 
-#outages.each do | res |
-# p res
-#end
+ # request['api_key'] = '365be576f6f24a35b7b226a751b3c476'
+ # HTTParty.get('https://api.wmata.com/Incidents.svc/json/ElevatorIncidents')
+  # puts response["ElevatorIncidents"]
+  # puts outages
   
 #end 
