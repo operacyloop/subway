@@ -1,16 +1,15 @@
+class API
+
 require 'net/http'
 require 'httparty'
 
-#class API
-  
 uri = URI('https://api.wmata.com/Incidents.svc/json/ElevatorIncidents')
 
  # Request parameters if needed them by putting this into coad below 'StationCode' => '{string}, but don't want station paramters because we want ALL the outages of all the escalators and elevators
 
 query = URI.encode_www_form({})
       
-
-# I think this goes through thing character by character, lol. Whoa...
+# The following code is from WMATA (DC Subway). I think this goes through thing character by character, lol. Whoa...
 
 if uri.query && uri.query.length > 0
     uri.query += '&' + query
