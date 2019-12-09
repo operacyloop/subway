@@ -1,7 +1,7 @@
 #class API
 
  class Issue 
-   attr_accessor :equipment, :location, :station, :location, :eta
+   attr_accessor :equipment, :station, :location, :reason, :eta
   
     def initialize 
       @equipment_a = @equipment
