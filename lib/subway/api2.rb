@@ -11,9 +11,14 @@ class Issue
     puts "This is the blueprint for issues with elevators and escalators on the Metrorail. Use this to create an Issue object"
   end
   
+  #class method...
   def self.count
+    @@count
+  end
   
+  #instance method...[see? no "self"]
+  def system
+    @@system
+  end 
   
-  puts Issue.description
-  puts self.description
 end
