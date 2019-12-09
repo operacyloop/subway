@@ -1,4 +1,17 @@
-class API
+#class API
+
+ class Issue 
+   attr_accessor :equipment, :location, :station, :location, :eta
+  
+    def initialize 
+      @equipment_a = @equipment
+      @station_a = @station 
+      @location_a = @location 
+      @reason_a = @reason 
+      @eta_a = @eta 
+    end 
+    
+  end 
 
 require 'net/http'
 require 'httparty'
@@ -31,41 +44,48 @@ end
 #lets see what data is in here for now...
 outages = response.body
 x = outages.split("},").to_a
-puts x.class
+# puts x.class # not needed any more, this was for testing purposes
 
 
 count = 0
 
-while count <= x.length-1
+while count <= x.length-2
     issue = x[count].delete! '{}:'
     issue = issue.split(",")
     count += 1
     
     puts "Issue is an #{issue.class}."
     
-    @equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
-    puts @equipment
     
-    @station = "Station Name: #{issue[4][13..100].delete('"')}"
-    puts @station
     
-    @location = "Location: #{issue[5].delete('"')[19..100]}"
-    puts @location 
+    equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
+    puts equipment
     
-    @reason = "Reason for outage: #{issue[8][20..100].delete('"')}"
-    puts @reason 
+    station = "Station Name: #{issue[4][13..100].delete('"')}"
+    puts station
     
-    @eta = "Anticipated repair date: #{issue[10][15..25].delete('"')}" 
-    puts @eta
-    puts @eta.class
+    location = "Location: #{issue[5].delete('"')[19..100]}"
+    puts location 
     
+    reason = "Reason for outage: #{issue[8][20..100].delete('"')}"
+    puts reason 
+    
+    eta = "Anticipated repair date: #{issue[10][15..25].delete('"')}" 
+    puts eta
+    puts eta.class
+    
+    @@collection_of_issues = [ ]
+    issue = Issue.new #(equipment, station, location, reason, eta)
+    @@collection_of_issues << issue
+    p issue
+    p issue.class
+   
+    puts @@collection_of_issues
+    puts @@collection_of_issues.class
+    puts @@collection_of_issues.length
     puts
   end
 
-
- # request['api_key'] = '365be576f6f24a35b7b226a751b3c476'
- # HTTParty.get('https://api.wmata.com/Incidents.svc/json/ElevatorIncidents')
-  # puts response["ElevatorIncidents"]
-  # puts outages
   
-#end 
+ 
+# end 
