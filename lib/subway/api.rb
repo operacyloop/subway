@@ -37,16 +37,29 @@ puts x.class
 
 count = 0
 
-while count <= x.length
+while count <= x.length-1
     issue = x[count].delete! '{}:'
     issue = issue.split(",")
     count += 1
-    puts "Issue is an #{issue.class}:"
-    puts "Equipment: #{issue[1][10..100].delete('"').downcase}"
-    puts "Station: #{issue[4][13..100].delete('"')}"
-    puts "Location: #{issue[5].delete('"')[19..100]}"
-    puts issue[8][20..100].delete('"')
-    puts issue[10][15..100].delete('"')
+    
+    puts "Issue is an #{issue.class}."
+    
+    @equipment = "Equipment: #{issue[1][10..100].delete('"').downcase}"
+    puts @equipment
+    
+    @station = "Station: #{issue[4][13..100].delete('"')}"
+    puts @station
+    
+    @location = "Location: #{issue[5].delete('"')[19..100]}"
+    puts @location 
+    
+    @reason = "Reason for outage: #{issue[8][20..100].delete('"')}"
+    puts @reason 
+    
+    @eta = "Anticipated repair date: #{issue[10][15..25].delete('"')}" 
+    puts @eta
+    @eta.class
+    
     puts
   end
 
