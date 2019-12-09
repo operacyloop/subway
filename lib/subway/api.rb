@@ -44,9 +44,9 @@ while count <= x.length
     puts issue.class
     puts issue[1].delete('"')
     puts issue[4].delete('"')
-    puts issue[5]
-    puts issue[8]
-    puts issue[10]
+    puts issue[5].delete('"')
+    puts issue[8].delete('"')
+    puts issue[10].delete('"')
     puts
   end
 
