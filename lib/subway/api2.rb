@@ -29,19 +29,23 @@ class Issue
   #passing a hash to make more stable and allow objects to be created, even with missing parameters
   def initialize(name, details={}) 
     @@count += 1
-    defaults = {equipment: "unknown equipment", location: "unknown location", station: "unknown station", reason: "unknown reason", eta: "unknown return-to-service date"
+    defaults = {equipment: "unknown equipment", location: "unknown location", station: "unknown station", reason: "unknown reason", eta: "unknown return-to-service date"}
+    
+    #allows us to keep the defaults from the default parameters, unless there is an incoming non-nil parameter
+    defaults.merge!(details)
     @name = name
-    @equipment = details[:equipment]
-    @location = details[:location]
-    @station = details[:station]
-    @reason = details[:reason]
-    @eta = details[:eta]
+    @equipment = defaults[:equipment]
+    @location = defaults[:location]
+    @station = defaults[:station]
+    @reason = defaults[:reason]
+    @eta = defaults[:eta]
   end 
 
 end
 
 info = {equipment: "Escalator", location: "south lawn of the White House", station: "Congress Heights Station", reason: "Minor Repair", eta: "2019-12-10"} 
 a = Issue.new("Outage", info) 
+p a
 #b = Issue.new
 #c = Issue.new
 
