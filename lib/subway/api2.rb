@@ -24,7 +24,10 @@ class Issue
     @@system
   end 
   
-  def initialize(name, details) 
+  #this initialize method takes a default argument of a name, but also of a hash 
+  #the hash is set to a default argument of an empty hash
+  #passing a hash to make more stable and allow objects to be created, even with missing parameters
+  def initialize(name, details={}) 
     @@count += 1
     @name = name
     @equipment = details[:equipment]
@@ -44,3 +47,12 @@ a = Issue.new("Outage", info)
 puts "The system currently has this many publicized issues:"
 puts Issue.count
 #puts a.system
+
+# Would you like outages related to:
+# 1. Major issues
+# 2. Minor issues
+# 3. Service
+# 4. Upgrades
+# Which outage would you like more info block_given?
+# Ex: "Elevator at Congress Heights"
+# Would you like "list of ____ issues or back to the main list"
