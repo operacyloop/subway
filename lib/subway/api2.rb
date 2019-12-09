@@ -29,6 +29,7 @@ class Issue
   #passing a hash to make more stable and allow objects to be created, even with missing parameters
   def initialize(name, details={}) 
     @@count += 1
+    defaults = {equipment: "unknown equipment", location: "unknown location", station: "unknown station", reason: "unknown reason", eta: "unknown return-to-service date"
     @name = name
     @equipment = details[:equipment]
     @location = details[:location]
