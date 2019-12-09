@@ -30,12 +30,13 @@ class Issue
     @equipment = details[:equipment]
     @location = details[:location]
     @station = details[:station]
-    @location = details[:reason]
+    @reason = details[:reason]
     @eta = details[:eta]
   end 
 
 end
 
+info = {equipment: "Escalator", location: "south lawn of the White House", station: "Congress Heights Station", reason: "Minor Repair", eta: "2019-12-10"} 
 #a = Issue.new 
 #b = Issue.new 
 #c = Issue.new
