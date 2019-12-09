@@ -39,10 +39,14 @@ count = 0
 
 while count <= x.length
     issue = x[count].delete! '{}'
+    issue = issue.split(",")
     count += 1
-    puts issue
     puts issue.class
-    puts 
+    puts issue[1].delete('"')
+    puts issue[4].delete('"')
+    puts issue[5]
+    puts issue[8]
+    puts issue[10]
     puts
   end
 
