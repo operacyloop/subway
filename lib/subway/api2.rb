@@ -24,7 +24,7 @@ class Issue
     @@system
   end 
   
-  def initialize(name, equipment, location, station, reason, eta) 
+  def initialize(name, details) 
     @@count += 1
     @name = name
     @equipment = details[:equipment]
@@ -37,8 +37,8 @@ class Issue
 end
 
 info = {equipment: "Escalator", location: "south lawn of the White House", station: "Congress Heights Station", reason: "Minor Repair", eta: "2019-12-10"} 
-#a = Issue.new 
-#b = Issue.new 
+a = Issue.new("Outage", info) 
+#b = Issue.new
 #c = Issue.new
 
 puts "The system currently has this many publicized issues:"
