@@ -44,10 +44,10 @@ while count <= x.length-1
     
     puts "Issue is an #{issue.class}."
     
-    @equipment = "Equipment: #{issue[1][10..100].delete('"').downcase}"
+    @equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
     puts @equipment
     
-    @station = "Station: #{issue[4][13..100].delete('"')}"
+    @station = "Station Name: #{issue[4][13..100].delete('"')}"
     puts @station
     
     @location = "Location: #{issue[5].delete('"')[19..100]}"
@@ -58,7 +58,7 @@ while count <= x.length-1
     
     @eta = "Anticipated repair date: #{issue[10][15..25].delete('"')}" 
     puts @eta
-    @eta.class
+    puts @eta.class
     
     puts
   end
