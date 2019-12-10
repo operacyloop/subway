@@ -18,16 +18,13 @@ def self.menu
       list_of_issues
     else 
       puts "not what you want"
-   # else 
-
-  #   # case input 
-  #   # when "1"
-  #   #   puts "More info on Elevator Issues..."
-  #   # when "2"
-  #   #   puts "More info on Escalator Issues..."
-  #   # when "list"
-  #   #   list_issues
-  
+    #case input 
+    when "1"
+      puts "More info on Elevator Issues..."
+    when "2"
+      puts "More info on Escalator Issues..."
+    when "list"
+      list_issues
     end 
   end 
 end 

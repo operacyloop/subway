@@ -1,18 +1,5 @@
 #class API
 
- class Issue 
-   attr_accessor :equipment, :station, :location, :reason, :eta
-  
-    def initialize 
-      @equipment_a = @equipment
-      @station_a = @station 
-      @location_a = @location 
-      @reason_a = @reason 
-      @eta_a = @eta 
-    end 
-    
-  end 
-
 require 'net/http'
 require 'httparty'
 
@@ -89,3 +76,17 @@ while count <= x.length-2
   
  
 # end 
+
+
+ class Issue 
+   attr_accessor :equipment, :station, :location, :reason, :eta
+  
+    def initialize 
+      @equipment_a = @equipment
+      @station_a = @station 
+      @location_a = @location 
+      @reason_a = @reason 
+      @eta_a = @eta 
+    end 
+    
+  end 
