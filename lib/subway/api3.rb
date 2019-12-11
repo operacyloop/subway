@@ -100,13 +100,13 @@ while count <= (x.length)-1
     
     # Yes, Issue is an array (next line, but commented), but end user doesn't care about this
     # puts "Issue is an #{issue.class}.
-    equipment = 0 #"#{issue[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
-    station = 3 #"#{issue[4][13..100].delete('"')}" # STATION works flawlessly
+    equipment = "#{issue[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
+    station = "#{issue[4][13..100].delete('"')}" # STATION works flawlessly
     location = "#{issue[5].delete_prefix('"LocationDescription""').delete_suffix('"').delete_prefix(" ")}" #LOCATION Works Flawlessly
-    reason = 9 # "#{issue[8][20..100]}"
-    eta = "#{issue[12][27..36].to_s}"
+    reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
+    eta = "#{issue[12][27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
   
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
-    puts info[:location]
+    puts info[:equipment], info[:station], info[:location]
     puts
   end
