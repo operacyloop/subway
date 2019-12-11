@@ -21,7 +21,8 @@ def self.menu
     elsif input == "list"
       list_of_issues 
     else
-      puts "not what you want"
+      puts "Not sure what you want"
+      goodbye
     end 
     
     
@@ -49,8 +50,12 @@ def self.menu
 end 
   
   def self.goodbye 
-   puts "goodbye! Come back later for update escaltor and elevator outages"
+   puts "Goodbye! Come back later for update escaltor and elevator outages"
   end 
+  
+  def self.list_of_issues
+    puts "Here is a complete list of issue:"
+    
 
     def self.list_of_issues
      # @issues = issue.current 

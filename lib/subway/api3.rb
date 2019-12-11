@@ -92,7 +92,7 @@ x = outages.split("},").to_a
 # puts x.class # not needed any more, this was for testing purposes
 
 #######################################################################
-############ THIS PART GETS THE INFO FROM THE WMATA API ###############
+################### THIS PART DEALS WITH THE DATA #####################
 #######################################################################
 
 
@@ -115,6 +115,13 @@ while count <= (x.length)-1
   
     #Takes the data and puts into a hash (now go make an object!)
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
-    puts info[:equipment], info[:station], info[:location]
-    puts
+    # puts info[:equipment], info[:station], info[:location]
+    # puts
+    Issue.new(count, info)
   end
+
+#######################################################################
+##################### MAKE A BUNCH OF OBJECTS #########################
+#######################################################################
+
+puts count
