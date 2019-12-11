@@ -43,6 +43,10 @@ class Issue
   #the hash is set to a default argument of an empty hash
   #passing a hash to make more stable and allow objects to be created, even with missing parameters
   def initialize(name, details={}) 
+  
+   
+  
+    
     @@count += 1
    
     defaults = {equipment: "unknown equipment", location: "unknown location", station: "unknown station", reason: "unknown reason", eta: "unknown return-to-service date"}
@@ -56,11 +60,16 @@ class Issue
     @reason = defaults[:reason]
     @eta = defaults[:eta]
     
-    puts @@count
-    puts :equipment
-    puts :location
-    puts :station 
-    puts 
+    # puts @@count
+    # puts details[:equipment]
+    # puts details[:location]
+    # puts details[:station]
+    
+    # @@all_the_issues = []
+    # @@all_the_issues << details
+    # puts @@all_the_issues
+    
+    puts
     
   end 
 
@@ -113,8 +122,7 @@ while count <= (x.length)-1
     count += 1
     #equipment = []
     @equipment =""
-    
-
+  
     
     # Yes, Issue is an array (next line, but commented), but end user doesn't care about this
     # puts "Issue is an #{issue.class}.
@@ -127,11 +135,16 @@ while count <= (x.length)-1
     #Takes the data and puts into a hash (now go make an object!)
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
     # puts info[:equipment], info[:station], info[:location]
-    Issue.new(count, info)
+    
+    #######################################################################
+    ##################### MAKE A BUNCH OF OBJECTS #########################
+    #######################################################################
+    
+    @@array_of_all_the_issues = []
+    @@array_of_all_the_issues << Issue.new(count, info)
+    puts @@array_of_all_the_issues.length
   end
 
-#######################################################################
-##################### MAKE A BUNCH OF OBJECTS #########################
-#######################################################################
+#p @@array_of_all_the_issues[0..100]
 
 #puts count
