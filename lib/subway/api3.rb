@@ -44,6 +44,7 @@ class Issue
   #passing a hash to make more stable and allow objects to be created, even with missing parameters
   def initialize(name, details={}) 
     @@count += 1
+   
     defaults = {equipment: "unknown equipment", location: "unknown location", station: "unknown station", reason: "unknown reason", eta: "unknown return-to-service date"}
     
     #allows us to keep the defaults from the default parameters, unless there is an incoming non-nil parameter
@@ -54,7 +55,15 @@ class Issue
     @station = defaults[:station]
     @reason = defaults[:reason]
     @eta = defaults[:eta]
+    
+    puts @@count
+    puts :equipment
+    puts :location
+    puts :station 
+    puts 
+    
   end 
+
 end
 
 #######################################################################
@@ -86,37 +95,38 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme ==  'https
     http.request(request)
 end
 
-#lets see what data is in here for now...
-outages = response.body
-x = outages.split("},").to_a
-# puts x.class # not needed any more, this was for testing purposes
 
 #######################################################################
 ################### THIS PART DEALS WITH THE DATA #####################
 #######################################################################
 
+#lets see what data is in here for now...
+outages = response.body
+x = outages.split("},").to_a
+# puts x.class # not needed any more, this was for testing purposes
 
 count = 0
 
 while count <= (x.length)-1
-    issue = x[count].delete! '{}:'
-    issue = issue.split(",")
+    problem = x[count].delete! '{}:'
+    problem = problem.split(",")
     count += 1
     #equipment = []
     @equipment =""
     
+
+    
     # Yes, Issue is an array (next line, but commented), but end user doesn't care about this
     # puts "Issue is an #{issue.class}.
-    equipment = "#{issue[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
-    station = "#{issue[4][13..100].delete('"')}" # STATION works flawlessly
-    location = "#{issue[5].delete_prefix('"LocationDescription""').delete_suffix('"').delete_prefix(" ")}" #LOCATION Works Flawlessly
-    reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
-    eta = "#{issue[12][27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
+    equipment = "#{problem[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
+    station = "#{problem[4][13..100].delete('"')}" # STATION works flawlessly
+    location = "#{problem[5].delete_prefix('"LocationDescription""').delete_suffix('"').delete_prefix(" ")}" #LOCATION Works Flawlessly
+    reason = "#{problem[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
+    eta = "#{problem[12][27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
   
     #Takes the data and puts into a hash (now go make an object!)
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
     # puts info[:equipment], info[:station], info[:location]
-    # puts
     Issue.new(count, info)
   end
 
@@ -124,4 +134,4 @@ while count <= (x.length)-1
 ##################### MAKE A BUNCH OF OBJECTS #########################
 #######################################################################
 
-puts count
+#puts count
