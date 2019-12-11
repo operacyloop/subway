@@ -94,11 +94,18 @@ while count <= (x.length)-1
     issue = x[count].delete! '{}:'
     issue = issue.split(",")
     count += 1
+    #equipment = []
+    @equipment =""
     
     # Yes, Issue is an array (next line, but commented), but end user doesn't care about this
     # puts "Issue is an #{issue.class}."
-    
+    list_of_equipment = []
     equipment = "#{issue[1][10..100].delete('"').capitalize}"
+    puts equipment
+    puts "out of..."
+    list_of_equipment << equipment 
+    list_of_equipment = list_of_equipment.uniq
+    puts "Choose from the different equipment: #{list_of_equipment}""
     puts equipment
     
     station = "#{issue[4][13..100].delete('"')}"
