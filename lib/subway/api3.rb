@@ -95,43 +95,41 @@ while count <= (x.length)-1
     issue = issue.split(",")
     count += 1
     
-    puts "Issue is an #{issue.class}."
+    # Yes, Issue is an array (next line, but commented), but end user doesn't care about this
+    # puts "Issue is an #{issue.class}."
     
-    equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
+    equipment = "#{issue[1][10..100].delete('"').capitalize}"
     puts equipment
     
-    station = "Station Name: #{issue[4][13..100].delete('"')}"
+    station = "#{issue[4][13..100].delete('"')}"
     puts station
     
-    location = "Location: #{issue[5].delete('"')[19..100]}"
+    location = "#{issue[5].delete('"')[19..100]}"
     puts location 
     
-    reason = "Reason for outage: #{issue[8][20..100]}"
+    reason = "#{issue[8][20..100]}"
     puts reason 
     
-    eta = "Anticipated repair date: #{issue[10][15..25].delete('"')}" 
+    eta = "#{issue[10][15..25].delete('"')}" 
     puts eta
-    puts eta.class
-    puts
-    puts
     
-    @@collection_of_issues = [ ]
+    @collection_of_issues = [ ] #maybe should have @@ not sure
     #issue = Issue.new #(equipment, station, location, reason, eta)
-    @@collection_of_issues << issue
-    p issue
-    p issue.class
+    @collection_of_issues << issue  #maybe should have @@ not sure
+    #p issue
+    #p issue.class
    
-    #puts @@collection_of_issues
-    puts @@collection_of_issues.class
-    puts @@collection_of_issues.length
+   # puts @@collection_of_issues
+   # puts @@collection_of_issues.class
+   # puts @@collection_of_issues.length
     puts
   end
 
 
 #DEFINE AN EXAMPLE HASH THAT CAN BE SENT TO CREATE AN OBJECT
-info = {equipment: "Escalator", location: "south lawn of the White House", station: "Congress Heights Station", reason: "Minor Repair", eta: "2019-12-10"} 
-a = Issue.new("Outage", info) 
-p a
+#info = {equipment: "Escalator", location: "south lawn of the White House", station: "Congress Heights Station", reason: "Minor Repair", eta: "2019-12-10"} 
+#a = Issue.new("Outage", info) 
+#p a
 #b = Issue.new
 #c = Issue.new
 
