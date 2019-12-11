@@ -100,11 +100,11 @@ while count <= (x.length)-1
     
     # Yes, Issue is an array (next line, but commented), but end user doesn't care about this
     # puts "Issue is an #{issue.class}.
-    equipment = "#{issue[1][10..100].delete('"').capitalize}"
+    equipment =  "#{issue[1][10..100].delete('"').capitalize}"
     station = "#{issue[4][13..100].delete('"')}"
-    location = "#{issue[5][20..100clear]}"
+    location = "#{issue[5][20..100]}"
     reason = "#{issue[8][20..100]}"
-    eta = issue[12][27..36].to_s
+    eta = "#{issue[12][27..36].to_s}"
   
     info = {station: station, location: location, reason: reason, eta: eta}
     puts info
