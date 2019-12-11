@@ -102,7 +102,7 @@ while count <= (x.length)-1
     # puts "Issue is an #{issue.class}.
     equipment = 0 #"#{issue[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
     station = 3 #"#{issue[4][13..100].delete('"')}" # STATION works flawlessly
-    location = "#{issue[5]}" #Got rid of [20..100] for testing purposes
+    location = "#{issue[5].delete_prefix('"LocationDescription""').delete_suffix('"').delete_prefix(" ")}" #LOCATION Works Flawlessly
     reason = 9 # "#{issue[8][20..100]}"
     eta = "#{issue[12][27..36].to_s}"
   
