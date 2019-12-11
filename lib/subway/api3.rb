@@ -1,5 +1,6 @@
 require 'net/http'
 require 'httparty'
+require 'time'
 
 #######################################################################
 ###### THIS PART IS THE CLASS THAT CREATES ISSUE OBJECTS ##############
@@ -98,57 +99,14 @@ while count <= (x.length)-1
     @equipment =""
     
     # Yes, Issue is an array (next line, but commented), but end user doesn't care about this
-    # puts "Issue is an #{issue.class}."
-    list_of_equipment = []
+    # puts "Issue is an #{issue.class}.
     equipment = "#{issue[1][10..100].delete('"').capitalize}"
-    puts equipment
-    puts "out of..."
-    list_of_equipment << equipment 
-    list_of_equipment = list_of_equipment.uniq
-    puts "Choose from the different equipment: #{list_of_equipment}""
-    puts equipment
-    
     station = "#{issue[4][13..100].delete('"')}"
-    puts station
-    
-    location = "#{issue[5].delete('"')[19..100]}"
-    puts location 
-    
+    location = "#{issue[5][20..100clear]}"
     reason = "#{issue[8][20..100]}"
-    puts reason 
-    
-    eta = "#{issue[10][15..25].delete('"')}" 
-    puts eta
-    
-    @collection_of_issues = [ ] #maybe should have @@ not sure
-    #issue = Issue.new #(equipment, station, location, reason, eta)
-    @collection_of_issues << issue  #maybe should have @@ not sure
-    #p issue
-    #p issue.class
-   
-   # puts @@collection_of_issues
-   # puts @@collection_of_issues.class
-   # puts @@collection_of_issues.length
+    eta = issue[12][27..36].to_s
+  
+    info = {station: station, location: location, reason: reason, eta: eta}
+    puts info
     puts
   end
-
-
-#DEFINE AN EXAMPLE HASH THAT CAN BE SENT TO CREATE AN OBJECT
-#info = {equipment: "Escalator", location: "south lawn of the White House", station: "Congress Heights Station", reason: "Minor Repair", eta: "2019-12-10"} 
-#a = Issue.new("Outage", info) 
-#p a
-#b = Issue.new
-#c = Issue.new
-
-#puts "The system currently has this many publicized issues:"
-#puts Subway::Issue.count
-#puts a.system
-
-# Would you like outages related to:
-# 1. Major issues
-# 2. Minor issues
-# 3. Service
-# 4. Upgrades
-# Which outage would you like more info block_given?
-# Ex: "Elevator at Congress Heights"
-# Would you like "list of ____ issues or back to the main list"
