@@ -2,6 +2,13 @@ require 'net/http'
 require 'httparty'
 require 'time'
 
+
+#######################################################################
+##################### THIS PART DEALS WITH HUMANS #####################
+#######################################################################
+
+
+
 #######################################################################
 ###### THIS PART IS THE CLASS THAT CREATES ISSUE OBJECTS ##############
 #######################################################################
@@ -106,6 +113,7 @@ while count <= (x.length)-1
     reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
     eta = "#{issue[12][27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
   
+    #Takes the data and puts into a hash (now go make an object!)
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
     puts info[:equipment], info[:station], info[:location]
     puts
