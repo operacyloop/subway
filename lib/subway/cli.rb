@@ -5,28 +5,28 @@ class CLI
 #######################################################################
   
   def self.menu 
-#     input = nil
-#     while input != "exit"
-#       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
-#       puts "1 - Elevators"
-#       puts "2 - Escalators"
-#       puts "Which would you like to get more information about? Type 'exit' to leave the program. Type list to see this again."
+     input = nil
+     while input != "exit"
+       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
+       puts "1 - Elevators"
+       puts "2 - Escalators"
+       puts "Which would you like to get more information about? Type 'exit' to leave the program. Type list to see this again."
     
-#       input = gets.strip.downcase
+       input = gets.strip.downcase
     
 # #######################################################################
 # ######### THIS PART THAT DEALS WITH LOGIC IN THE PROGRAM ##############
 # #######################################################################
     
-#     if input == "1" 
-#       puts "Elevator Issues"
-#     if input == "2"
-#       puts "Escalator Issues"
-#     elsif input == "list"
-#       list_of_issues 
-#     else
-#       puts "Not sure what you want"
-#       goodbye
+      # if input == "1" 
+      #   puts "Elevator Issues"
+      # if input == "2"
+      #   puts "Escalator Issues"
+      # elsif input == "list"
+      #   list_of_issues 
+      # else
+      #   puts "Not sure what you want"
+      #   goodbye
     
 #   #   ##if input != "1" or "2"
 #   # ##   puts "Please choose 1 or 2"
@@ -45,20 +45,21 @@ class CLI
 #   # # when "list"
 #   #   # list_issues
 #   #   end 
-#   # end 
-  end 
+end 
+end 
   
   def self.goodbye 
-    #puts "Goodbye! Come back later for update escaltor and elevator outages"
+    puts "Goodbye! Come back later for update escaltor and elevator outages"
   end 
 
   def self.list_of_issues
-     # @issues = issue.current 
-     # @issues.each.with_index(1) do | issue, i | #starts indexing at 1 
-     #  puts "#{i}. #{issue}""
-      # puts "Current Metrorail Issues:"
-      # puts # issue_1
-      # puts # issue_2
+    @issues = issue.current 
+    @issues.each.with_index(1) do | issue, i | #starts indexing at 1 
+       puts "#{i}. #{issue}"
+       puts "Current Metrorail Issues:"
+       puts # issue_1
+       puts # issue_2
+    end 
   end 
   
   # # what follows is a class method and self is refering the class itself (aka the CLI class)...
