@@ -5,52 +5,47 @@ class CLI
 #######################################################################
   
   def self.menu 
-    input = nil
-    while input != "exit"
-      puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
-      puts "1 - Elevators"
-      puts "2 - Escalators"
-      puts "Which would you like to get more information about? Type 'exit' to leave the program. Type list to see this again."
+#     input = nil
+#     while input != "exit"
+#       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
+#       puts "1 - Elevators"
+#       puts "2 - Escalators"
+#       puts "Which would you like to get more information about? Type 'exit' to leave the program. Type list to see this again."
     
-      input = gets.strip.downcase
+#       input = gets.strip.downcase
     
-#######################################################################
-######### THIS PART THAT DEALS WITH LOGIC IN THE PROGRAM ##############
-#######################################################################
+# #######################################################################
+# ######### THIS PART THAT DEALS WITH LOGIC IN THE PROGRAM ##############
+# #######################################################################
     
-     if input == "1" 
-       puts "Elevator Issues"
-     if input == "2"
-       puts "Escalator Issues"
-     elsif input == "list"
-       list_of_issues 
-     else
-       puts "Not sure what you want"
-       goodbye
-     end 
+#     if input == "1" 
+#       puts "Elevator Issues"
+#     if input == "2"
+#       puts "Escalator Issues"
+#     elsif input == "list"
+#       list_of_issues 
+#     else
+#       puts "Not sure what you want"
+#       goodbye
     
-    
-  #   ##if input != "1" or "2"
-  # ##   puts "Please choose 1 or 2"
-    
-      
-      
-  #   # if input.to_i > 0 
-  #   #   the_issue = @issues[input.to_i-1] #subtract 1 so can find itin the array
-  #   #   puts "#{issue.name}" #all the attributes here
-  #   # elsif input == "list"
-  #   #   list_of_issues
-  #   # else 
-  #   #   puts "not what you want"
-  #   #case input 
-  #   #when "1"
-  #   #  puts "More info on Elevator Issues..."
-  #   #when "2"
-  #   #  puts "More info on Escalator Issues..."
-  # # when "list"
-  #   # list_issues
-  #   end 
-  # end 
+#   #   ##if input != "1" or "2"
+#   # ##   puts "Please choose 1 or 2"
+#   #   # if input.to_i > 0 
+#   #   #   the_issue = @issues[input.to_i-1] #subtract 1 so can find itin the array
+#   #   #   puts "#{issue.name}" #all the attributes here
+#   #   # elsif input == "list"
+#   #   #   list_of_issues
+#   #   # else 
+#   #   #   puts "not what you want"
+#   #   #case input 
+#   #   #when "1"
+#   #   #  puts "More info on Elevator Issues..."
+#   #   #when "2"
+#   #   #  puts "More info on Escalator Issues..."
+#   # # when "list"
+#   #   # list_issues
+#   #   end 
+#   # end 
   end 
   
   def self.goodbye 
