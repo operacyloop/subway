@@ -1,27 +1,29 @@
+#######################################################################
+###### THIS PART IS THE CLASS THAT CREATES ISSUE OBJECTS ##############
+#######################################################################
+
 class Issue 
   
   #allowing for read-write to all the folloing variables:
   attr_accessor :name, :equipment, :location, :station, :reason, :eta
   
-  #class variable...
+  #class variable... 
   @@system = "Metrorail"
   
   #class variable to count... [keeps track of the number of instances of "issues"]
   @@count = 0 
   
   #class method... [only to be called on the class]
-  
   def self.description
     puts "This is the blueprint for issues with elevators and escalators on the Metrorail, the Washington DC subway system. Use this to create an Issue object"
   end
   
-  #class method...
-  
+  #class method... [counts the objects aka the issues]
   def self.count
     @@count
   end
   
-  #instance method...[see? no "self"]
+  #instance method...[see? no "self"; if there was self, this would be a class method]
   def system
     @@system
   end 
@@ -30,7 +32,12 @@ class Issue
   #the hash is set to a default argument of an empty hash
   #passing a hash to make more stable and allow objects to be created, even with missing parameters
   def initialize(name, details={}) 
+  
+   
+  
+    
     @@count += 1
+   
     defaults = {equipment: "unknown equipment", location: "unknown location", station: "unknown station", reason: "unknown reason", eta: "unknown return-to-service date"}
     
     #allows us to keep the defaults from the default parameters, unless there is an incoming non-nil parameter
@@ -41,9 +48,73 @@ class Issue
     @station = defaults[:station]
     @reason = defaults[:reason]
     @eta = defaults[:eta]
+    
+    # puts @@count
+    # puts details[:equipment]
+    # puts details[:location]
+    # puts details[:station]
+    
+    # @@all_the_issues = []
+    # @@all_the_issues << details
+    # puts @@all_the_issues
+    
+    puts
+    
   end 
 
 end
+
+## - below is other code, eventually need to take out - ## 
+
+
+
+
+# class Issue 
+  
+#   #allowing for read-write to all the folloing variables:
+#   attr_accessor :name, :equipment, :location, :station, :reason, :eta
+  
+#   #class variable...
+#   @@system = "Metrorail"
+  
+#   #class variable to count... [keeps track of the number of instances of "issues"]
+#   @@count = 0 
+  
+#   #class method... [only to be called on the class]
+  
+#   def self.description
+#     puts "This is the blueprint for issues with elevators and escalators on the Metrorail, the Washington DC subway system. Use this to create an Issue object"
+#   end
+  
+#   #class method...
+  
+#   def self.count
+#     @@count
+#   end
+  
+#   #instance method...[see? no "self"]
+#   def system
+#     @@system
+#   end 
+  
+#   #this initialize method takes a default argument of a name, but also of a hash 
+#   #the hash is set to a default argument of an empty hash
+#   #passing a hash to make more stable and allow objects to be created, even with missing parameters
+#   def initialize(name, details={}) 
+#     @@count += 1
+#     defaults = {equipment: "unknown equipment", location: "unknown location", station: "unknown station", reason: "unknown reason", eta: "unknown return-to-service date"}
+    
+#     #allows us to keep the defaults from the default parameters, unless there is an incoming non-nil parameter
+#     defaults.merge!(details)
+#     @name = name
+#     @equipment = defaults[:equipment]
+#     @location = defaults[:location]
+#     @station = defaults[:station]
+#     @reason = defaults[:reason]
+#     @eta = defaults[:eta]
+#   end 
+
+# end
 
 
 
