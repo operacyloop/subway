@@ -18,16 +18,17 @@ class CLI
 # ######### THIS PART THAT DEALS WITH LOGIC IN THE PROGRAM ##############
 # #######################################################################
     
-      # if input == "1" 
-      #   puts "Elevator Issues"
-      # if input == "2"
-      #   puts "Escalator Issues"
+      if input == "1" 
+        puts "Elevator Issues"
+      if input == "2"
+         puts "Escalator Issues"
       # elsif input == "list"
       #   list_of_issues 
       # else
       #   puts "Not sure what you want"
-      #   goodbye
-    
+        goodbye
+     end 
+     
 #   #   ##if input != "1" or "2"
 #   # ##   puts "Please choose 1 or 2"
 #   #   # if input.to_i > 0 
