@@ -1,4 +1,4 @@
-class Subway::Issue 
+class Issue 
   
   #allowing for read-write to all the folloing variables:
   attr_accessor :name, :equipment, :location, :station, :reason, :eta
@@ -10,11 +10,13 @@ class Subway::Issue
   @@count = 0 
   
   #class method... [only to be called on the class]
+  
   def self.description
     puts "This is the blueprint for issues with elevators and escalators on the Metrorail, the Washington DC subway system. Use this to create an Issue object"
   end
   
   #class method...
+  
   def self.count
     @@count
   end
@@ -70,7 +72,7 @@ end
   # should return an array [issue_1, issue_2]
   # puts issue_1
   # puts issue_2
-  end
+  #end
   
 #   What is an issue
 # -- Problem (aka SymptomDescription)

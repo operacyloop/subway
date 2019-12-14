@@ -61,8 +61,8 @@ while count <= x.length-2
     puts eta
     puts eta.class
     
-    @@collection_of_issues = [ ]
-    issue = Issue.new #(equipment, station, location, reason, eta)
+    # @@collection_of_issues = [ ]
+    issue = Issue.new(3, {})
     @@collection_of_issues << issue
     p issue
     p issue.class
