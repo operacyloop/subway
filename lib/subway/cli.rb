@@ -37,10 +37,15 @@ class CLI
       else
         puts
         puts "I am not sure what you want. Want to try again?"
-        
-        
-        list_of_issues
-      end
+        puts "Enter 'Y' for yes and 'N' for no..."
+        input = gets.strip.downcase
+          if input == "Y"
+            list_of_issues
+          elsif input == "N"
+            goodbye
+          else CLI.menu
+          end
+       end
     end
   end 
      
@@ -72,9 +77,10 @@ class CLI
     #@issues = issue.current 
     #@issues.each.with_index(1) do | issue, i | #starts indexing at 1 
      # puts "#{i}. #{issue}"
+      puts
       puts "Current Metrorail Issues:"
-      puts # issue_1
-      puts # issue_2
+    #  puts # issue_1
+    #  puts # issue_2
     #end 
   end 
 
