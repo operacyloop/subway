@@ -7,28 +7,40 @@ class CLI
   def self.menu 
     input = nil
     while input != "exit"
+      puts
       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
       puts "1 - Elevators"       
       puts "2 - Escalators"
       puts "Which would you like to get more information about? Type 'exit' to leave the program. Type list to see this again."
+      puts
       input = gets.strip.downcase
     
 ###################################################################
 ########## THIS PART THAT DEALS WITH LOGIC IN THE PROGRAM #########
 ###################################################################
     
-#       if input == "1" 
-#         puts "Elevator Issues"
-#       if input == "2"
-#         puts "Escalator Issues"
-# #       # elsif input == "list"
-# #       #   list_of_issues 
-# #       # else
-# #       #   puts "Not sure what you want"
-# #         goodbye
-#   end
-     end
-     end 
+      if input == "1" 
+        puts
+        puts "Elevator Issues"
+        puts "1."
+        puts "2."
+        puts "3."
+      elsif input == "2"
+        puts
+        puts "Escalator Issues"
+        puts "1."
+        puts "2."
+      elsif input == "list"
+        list_of_issues 
+      elsif input == "exit"
+        goodbye
+      else
+        puts
+        puts "I am not sure what you want. Want to try again?"
+        list_of_issues
+      end
+    end
+  end 
      
 # #   #   ##if input != "1" or "2"
 # #   # ##   puts "Please choose 1 or 2"
@@ -51,7 +63,7 @@ class CLI
 # end 
   
   def self.goodbye 
-    puts "Goodbye! Come back later for update escaltor and elevator outages"
+    puts "Goodbye! Come back later for update escaltor and elevator outages!"
   end 
 
   def self.list_of_issues
