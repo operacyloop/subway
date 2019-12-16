@@ -40,7 +40,11 @@ class CLI
     end
   end 
   
-  def input_makes_no_sense
+###################################################################
+######### IF THEY INPUT SOMETHING THAT IS NOT AN OPTION... ########
+###################################################################
+  
+  def self.input_makes_no_sense
     puts
     puts "I am not sure what you want. Want to try again?"
     puts "Enter 'Y' for yes and 'N' for no..."
@@ -76,6 +80,10 @@ class CLI
 # end 
 # end 
   
+###################################################################
+################### WHEN THEY DECIDE TO GO... #####################
+###################################################################
+  
   def self.goodbye 
     puts "Goodbye! Come back later for update escaltor and elevator outages!"
   end 
@@ -92,6 +100,10 @@ class CLI
   end 
 
 #   # # what follows is a class method and self is refering the class itself (aka the CLI class)...
+    
+###################################################################
+###################### STARTS THE WHOLE THING #####################
+###################################################################   
     
   def self.call
     puts "in the middle of the call method, a class method"
