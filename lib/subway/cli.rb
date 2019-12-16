@@ -1,28 +1,33 @@
 class CLI
   
+###################################################################
+##########  THIS PART THAT DEALS WITH INPUT FROM A HUMAN  #########
+###################################################################
+  
   def self.menu 
-#     input = nil
-#     while input != "exit"
-#       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
-#       puts "1 - Elevators"
-#       puts "2 - Escalators"
-#       puts "Which would you like to get more information about? Type 'exit' to leave the program. Type list to see this again."
+    input = nil
+    while input != "exit"
+      puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
+      puts "1 - Elevators"       
+      puts "2 - Escalators"
+      puts "Which would you like to get more information about? Type 'exit' to leave the program. Type list to see this again."
+      input = gets.strip.downcase
     
-#       input = gets.strip.downcase
-    
-#################################################################
-### THIS PART THAT DEALS WITH LOGIC IN THE PROGRAM ##############
-#################################################################
+###################################################################
+########## THIS PART THAT DEALS WITH LOGIC IN THE PROGRAM #########
+###################################################################
     
 #       if input == "1" 
 #         puts "Elevator Issues"
 #       if input == "2"
 #         puts "Escalator Issues"
-#       # elsif input == "list"
-#       #   list_of_issues 
-#       # else
-#       #   puts "Not sure what you want"
-#         goodbye
+# #       # elsif input == "list"
+# #       #   list_of_issues 
+# #       # else
+# #       #   puts "Not sure what you want"
+# #         goodbye
+#   end
+     end
      end 
      
 # #   #   ##if input != "1" or "2"
@@ -69,3 +74,4 @@ class CLI
   end
 
 end
+
