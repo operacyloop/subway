@@ -63,8 +63,8 @@ class CLI
       puts # issue_2
     end 
   end 
-  
-   # # what follows is a class method and self is refering the class itself (aka the CLI class)...
+
+#   # # what follows is a class method and self is refering the class itself (aka the CLI class)...
     
   def self.call
     puts "in the middle of the call method, a class method"
@@ -75,3 +75,4 @@ class CLI
 
 end
 
+CLI.menu
