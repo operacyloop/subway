@@ -35,17 +35,21 @@ class CLI
       elsif input == "exit"
         goodbye
       else
-        puts
-        puts "I am not sure what you want. Want to try again?"
-        puts "Enter 'Y' for yes and 'N' for no..."
-        input = gets.strip.downcase
-          if input == "Y"
-            list_of_issues
-          elsif input == "N"
-            goodbye
-          else CLI.menu
-          end
-       end
+        input_makes_no_sense
+      end
+    end
+  end 
+  
+  def input_makes_no_sense
+    puts
+    puts "I am not sure what you want. Want to try again?"
+    puts "Enter 'Y' for yes and 'N' for no..."
+    input = gets.strip.downcase
+    if input == "y"
+      list_of_issues
+    elsif input == "n"
+      goodbye
+        input_makes_no_sense
     end
   end 
      
