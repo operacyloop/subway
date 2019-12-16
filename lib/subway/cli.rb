@@ -37,6 +37,8 @@ class CLI
       else
         puts
         puts "I am not sure what you want. Want to try again?"
+        
+        
         list_of_issues
       end
     end
@@ -67,13 +69,13 @@ class CLI
   end 
 
   def self.list_of_issues
-    @issues = issue.current 
-    @issues.each.with_index(1) do | issue, i | #starts indexing at 1 
-      puts "#{i}. #{issue}"
+    #@issues = issue.current 
+    #@issues.each.with_index(1) do | issue, i | #starts indexing at 1 
+     # puts "#{i}. #{issue}"
       puts "Current Metrorail Issues:"
       puts # issue_1
       puts # issue_2
-    end 
+    #end 
   end 
 
 #   # # what follows is a class method and self is refering the class itself (aka the CLI class)...
