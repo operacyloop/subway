@@ -1,6 +1,6 @@
 class CLI
   
-  def self.menu 
+  def self.call
     input = nil
     while input != "exit"
       puts
@@ -16,7 +16,7 @@ class CLI
       elsif input == "2"
         escaltor
       elsif input == "menu"
-        menu
+        call
       elsif input == "exit"
         goodbye
       else
@@ -39,9 +39,9 @@ class CLI
   
   def self.input_makes_no_sense
     puts
-    puts "I am not sure what you want. Want to try again?"
+    puts "I am not sure what you want."
     puts
-    puts "Enter 'Y' for yes and 'N' [or any other input] for no..."
+    puts "Want to try again? Enter 'Y' for yes and 'N' [or any other input] for no..."
     input = nil
     input = gets.strip.downcase
     if input == "y"
@@ -56,30 +56,8 @@ class CLI
   def self.goodbye 
     puts "Goodbye! Come back later for update escaltor and elevator outages!"
   end 
-
-  # def self.list_of_issues
-  #   #@issues = issue.current 
-  #   #@issues.each.with_index(1) do | issue, i | #starts indexing at 1 
-  #   # puts "#{i}. #{issue}"
-  #     puts
-  #     puts "Current Metrorail Issues:"
-  #   #  puts # issue_1
-  #   #  puts # issue_2
-  #   #end 
-  # end 
-
-#   # # what follows is a class method and self is refering the class itself (aka the CLI class)...
-    
-###################################################################
-###################### STARTS THE WHOLE THING #####################
-###################################################################   
-    
-  def self.call
-    puts "in the middle of the call method, a class method"
-    menu
-    goodbye
-  end
   
 end
 
-CLI.menu
+CLI.call
+
