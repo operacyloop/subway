@@ -4,7 +4,7 @@
 
 class Issue 
   
-  #allowing for read-write to all the folloing variables:
+  #allowing for read-write to all the folloing variables (aka attributes):
   attr_accessor :name, :equipment, :location, :station, :reason, :eta
   
   #class variable... 

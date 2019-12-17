@@ -1,9 +1,5 @@
 class CLI
   
-###################################################################
-##########  THIS PART THAT DEALS WITH INPUT FROM A HUMAN  #########
-###################################################################
-  
   def self.menu 
     input = nil
     while input != "exit"
@@ -15,22 +11,11 @@ class CLI
       puts
       input = gets.strip.downcase
     
-###################################################################
-########## THIS PART THAT DEALS WITH LOGIC IN THE PROGRAM #########
-###################################################################
-    
       if input == "1" 
-        puts
-        puts "Elevator Issues"
-        puts "1."
-        puts "2."
-        puts "3."
+        elevator
       elsif input == "2"
-        puts
-        puts "Escalator Issues"
-        puts "1."
-        puts "2."
-      elsif input == "list"
+        escaltor
+      elsif input == "menu"
         menu
       elsif input == "exit"
         goodbye
@@ -40,60 +25,33 @@ class CLI
     end
   end 
   
-###################################################################
-######### IF THEY INPUT SOMETHING THAT IS NOT AN OPTION... ########
-###################################################################
+  def self.elevator 
+    puts
+    puts "This is where the ELevator issues go"
+    puts
+  end
+  
+  def self.escaltor
+    puts
+    puts "This is where the EScalator issues go"
+    puts
+  end
   
   def self.input_makes_no_sense
     puts
     puts "I am not sure what you want. Want to try again?"
     puts
-    yes_or_no
-  end 
-  
-  def self.yes_or_no
-    puts "Enter 'Y' for yes and 'N' for no..."
+    puts "Enter 'Y' for yes and 'N' [or any other input] for no..."
     input = nil
-    while input != "n"
     input = gets.strip.downcase
-    
     if input == "y"
-       puts
-       puts "OK, let's give this another try..."
-       puts
-       menu
-    elsif input == "exit"
-      puts "exit"
-      goodbye 
-    else
-      puts "Your input made no sense. Goodbye."
+      puts "OK, let's give this another try..."
+      menu
+    else 
+      puts "OK, later gator!"
       goodbye 
     end
-  end 
-end    
-# #   #   ##if input != "1" or "2"
-# #   # ##   puts "Please choose 1 or 2"
-# #   #   # if input.to_i > 0 
-# #   #   #   the_issue = @issues[input.to_i-1] #subtract 1 so can find itin the array
-# #   #   #   puts "#{issue.name}" #all the attributes here
-# #   #   # elsif input == "list"
-# #   #   #   list_of_issues
-# #   #   # else 
-# #   #   #   puts "not what you want"
-# #   #   #case input 
-# #   #   #when "1"
-# #   #   #  puts "More info on Elevator Issues..."
-# #   #   #when "2"
-# #   #   #  puts "More info on Escalator Issues..."
-# #   # # when "list"
-# #   #   # list_issues
-# #   #   end 
-# end 
-# end 
-  
-###################################################################
-################### WHEN THEY DECIDE TO GO... #####################
-###################################################################
+  end
   
   def self.goodbye 
     puts "Goodbye! Come back later for update escaltor and elevator outages!"
@@ -121,6 +79,7 @@ end
     menu
     goodbye
   end
+  
 end
 
 CLI.menu
