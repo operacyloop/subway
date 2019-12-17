@@ -50,13 +50,18 @@ class CLI
     puts "Enter 'Y' for yes and 'N' for no..."
     input = gets.strip.downcase
     if input == "y"
-      puts
-      puts "OK, let's give this another try..."
-      puts
-      list_of_issues
-    else input == "n"
+       puts
+       puts "OK, let's give this another try..."
+       puts
+       goodbye
+      # list_of_issues
+      goodye
+    elsif input == "n"
+      puts "you chose 'no'. Goodbye."
       goodbye
-        # input_makes_no_sense
+    else
+      puts "your input made no sense. Goodbye."
+      input_makes_no_sense
     end
   end 
      
