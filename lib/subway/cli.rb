@@ -47,21 +47,27 @@ class CLI
   def self.input_makes_no_sense
     puts
     puts "I am not sure what you want. Want to try again?"
+    puts
+    yes_or_no
+  end 
+  
+  def self.yes_or_no
     puts "Enter 'Y' for yes and 'N' for no..."
     input = gets.strip.downcase
     if input == "y"
        puts
        puts "OK, let's give this another try..."
        puts
-       goodbye
-      # list_of_issues
-      goodye
+       menu
     elsif input == "n"
-      puts "you chose 'no'. Goodbye."
+      puts "you chose 'no'."
       goodbye
+    elsif 
+      puts "exit"
+      goodbye 
     else
-      puts "your input made no sense. Goodbye."
-      input_makes_no_sense
+      puts "Your input made no sense. Goodbye."
+      goodbye 
     end
   end 
      
@@ -90,6 +96,7 @@ class CLI
 ###################################################################
   
   def self.goodbye 
+    
     puts "Goodbye! Come back later for update escaltor and elevator outages!"
   end 
 
