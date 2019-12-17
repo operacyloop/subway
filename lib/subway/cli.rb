@@ -53,7 +53,11 @@ class CLI
   
   def self.yes_or_no
     puts "Enter 'Y' for yes and 'N' for no..."
+    input = nil
+    
+    while input != "n"
     input = gets.strip.downcase
+    
     if input == "y"
        puts
        puts "OK, let's give this another try..."
