@@ -14,7 +14,7 @@ class CLI
         elevator
       when "2"
         escaltor 
-      when "menu"
+      when "menu", "list"
         call 
       when "exit"
         goodbye 
