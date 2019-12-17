@@ -57,7 +57,9 @@ while count <= x.length-2
     
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
     
-    # puts info[:equipment], info[:station], info[:location]
+    puts "info[:equipment], info[:station], info[:location]..."
+    puts info[:equipment], info[:station], info[:location]
+    puts
      
     # equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
     # puts equipment
