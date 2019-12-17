@@ -62,7 +62,7 @@ class CLI
        puts "OK, let's give this another try..."
        puts
        menu
-    elsif 
+    elsif input == "exit"
       puts "exit"
       goodbye 
     else
