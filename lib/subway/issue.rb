@@ -1,6 +1,6 @@
-class Issue(name, {details}) 
+class Issue
   
-  attr_accessor :name, :equipment, :location, :station, :reason, :eta
+  attr_accessor :name, :equipment, :location, :station, :reason, :eta 
   
   def initialize(name, details={}) 
   

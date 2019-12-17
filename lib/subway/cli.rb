@@ -21,31 +21,20 @@ class CLI
       else 
         input_makes_no_sense
       end 
-      
-      # if input == "1" 
-      #   elevator
-      # elsif input == "2"
-      #   escaltor
-      # elsif input == "menu"
-      #   call
-      # elsif input == "exit"
-      #   goodbye
-      # else
-      #   input_makes_no_sense
-    
-    #end
   end 
   
   def self.elevator 
     puts
-    puts "This is where the ELevator issues go"
+    puts "This is where the Elevator issues go..."
     puts
+    call
   end
   
   def self.escaltor
     puts
-    puts "This is where the EScalator issues go"
+    puts "This is where the Escalator issues go..."
     puts
+    call
   end
   
   def self.input_makes_no_sense
@@ -68,7 +57,8 @@ class CLI
   end
   
   def self.goodbye 
-    puts "Goodbye! Come back later for update escaltor and elevator outages!"
+    puts "Goodbye! Come back later for update escalator and elevator outages!"
+    puts
   end 
   
 end

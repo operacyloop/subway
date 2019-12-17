@@ -2,8 +2,6 @@ require 'net/http'
 require 'httparty'
 
 class API
-  
-#@@all = [] 
 
 uri = URI('https://api.wmata.com/Incidents.svc/json/ElevatorIncidents')
 
@@ -44,49 +42,34 @@ while count <= x.length-2
      issue = issue.split(",")
      count += 1
      puts "Issue is an #{issue.class}."
-     equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
-     puts equipment
+     
+     equipment = "#{problem[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
+     station = "#{problem[4][13..100].delete('"')}" # STATION works flawlessly
+     location = "#{problem[5].delete_prefix('"LocationDescription""').delete_suffix('"').delete_prefix(" ")}" #LOCATION Works Flawlessly
+     reason = "#{problem[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
+     eta = "#{problem[12][27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
+  
+    #Takes the data and puts into a hash (now go make an object!)
+    info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
+    # puts info[:equipment], info[:station], info[:location]
+     
+    # equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
+    # puts equipment
     
-     station = "Station Name: #{issue[4][13..100].delete('"')}"
-     puts station
+    # station = "Station Name: #{issue[4][13..100].delete('"')}"
+    # puts station
     
-     location = "Location: #{issue[5].delete('"')[19..100]}"
-     puts location 
+    # location = "Location: #{issue[5].delete('"')[19..100]}"
+    # puts location 
     
-     reason = "Reason for outage: #{issue[8][20..100].delete('"')}"
-     puts reason 
+    # reason = "Reason for outage: #{issue[8][20..100].delete('"')}"
+    # puts reason 
     
      eta = "Anticipated repair date: #{issue[10][15..25].delete('"')}" 
      puts eta
      puts eta.class
-     
      @@all << Issue.new(count, {:equipment, :station, :location, :reason, :eta})
-    
-
-     # @@collection_of_issues = [ ]
-     # issue = Issue.new(3, {})
-     # @@collection_of_issues << issue
-    # puts "issue inspected is..."
-    # p issue
-    # puts "issue class is..."
-    # p issue.class
-   
-     # puts @@collection_of_issues
-     # puts @@collection_of_issues.class
-     # puts @@collection_of_issues.length
      puts
    end
    puts "@@all = #{@@all}"
 end 
-
-
-# class Issue 
-#   attr_accessor :equipment, :station, :location, :reason, :eta
-#     def initialize 
-#       @equipment_a = @equipment
-#       @station_a = @station 
-#       @location_a = @location 
-#       @reason_a = @reason 
-#       @eta_a = @eta 
-#     end 
-#   end 
