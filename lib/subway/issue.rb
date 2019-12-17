@@ -20,3 +20,5 @@ class Issue
   def self.all
     @@all
   end
+  
+end
