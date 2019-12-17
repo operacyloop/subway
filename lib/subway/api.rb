@@ -3,7 +3,7 @@ require 'httparty'
 
 class API
   
-@@all = [] 
+#@@all = [] 
 
 uri = URI('https://api.wmata.com/Incidents.svc/json/ElevatorIncidents')
 
@@ -59,11 +59,10 @@ while count <= x.length-2
      eta = "Anticipated repair date: #{issue[10][15..25].delete('"')}" 
      puts eta
      puts eta.class
-    
-     @@all << [count, equipment, station, location, reason, eta]
-    
-    
      
+     @@all << Issue.new(count, {:equipment, :station, :location, :reason, :eta})
+    
+
      # @@collection_of_issues = [ ]
      # issue = Issue.new(3, {})
      # @@collection_of_issues << issue

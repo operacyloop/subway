@@ -1,9 +1,7 @@
-class Issue 
+class Issue(name, {details}) 
   
   #allowing for read-write to all the folloing variables (aka attributes):
   attr_accessor :name, :equipment, :location, :station, :reason, :eta
-  
-  @@all = []
   
   #class variable... 
   #@@system = "Metrorail"
