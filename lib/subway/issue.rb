@@ -1,43 +1,42 @@
-#######################################################################
-###### THIS PART IS THE CLASS THAT CREATES ISSUE OBJECTS ##############
-#######################################################################
-
 class Issue 
   
   #allowing for read-write to all the folloing variables (aka attributes):
   attr_accessor :name, :equipment, :location, :station, :reason, :eta
   
-  #class variable... 
-  @@system = "Metrorail"
+  @@all = []
   
-  #class variable to count... [keeps track of the number of instances of "issues"]
-  @@count = 0 
+  #class variable... 
+  #@@system = "Metrorail"
+  
+  ##class variable to count... [keeps track of the number of instances of "issues"]
+  #@@count = 0 
   
   #class method... [only to be called on the class]
-  def self.description
-    puts "This is the blueprint for issues with elevators and escalators on the Metrorail, the Washington DC subway system. Use this to create an Issue object"
-  end
+  #def self.description
+  #  puts "This is the blueprint for issues with elevators and escalators on the Metrorail, the Washington DC subway system. Use this to create an Issue object"
+  #end
   
   #class method... [counts the objects aka the issues]
-  def self.count
-    @@count
-  end
+  #def self.count
+  #  @@count
+  #end
   
   #instance method...[see? no "self"; if there was self, this would be a class method]
-  def system
-    @@system
-  end 
+  # system
+  #  @@system
+  # end 
   
   #this initialize method takes a default argument of a name, but also of a hash 
   #the hash is set to a default argument of an empty hash
   #passing a hash to make more stable and allow objects to be created, even with missing parameters
   def initialize(name, details={}) 
   
-    @@count += 1
+   # @@count += 1
    
     defaults = {equipment: "unknown equipment", location: "unknown location", station: "unknown station", reason: "unknown reason", eta: "unknown return-to-service date"}
     
     #allows us to keep the defaults from the default parameters, unless there is an incoming non-nil parameter
+    
     defaults.merge!(details)
     @name = name
     @equipment = defaults[:equipment]
@@ -45,7 +44,8 @@ class Issue
     @station = defaults[:station]
     @reason = defaults[:reason]
     @eta = defaults[:eta]
-    
+    @@all << self
+
     # puts @@count
     # puts details[:equipment]
     # puts details[:location]
@@ -54,12 +54,17 @@ class Issue
     # @@all_the_issues = []
     # @@all_the_issues << details
     # puts @@all_the_issues
-    
-    puts
-    
+
+    #puts
   end 
+  
+   def self.all
+    @@all
+  end
+
 
 end
+
 
 ## - below is other code, eventually need to take out - ## 
 

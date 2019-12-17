@@ -58,6 +58,8 @@ while count <= x.length-2
      puts eta
      puts eta.class
     
+     @@all << 
+     
      # @@collection_of_issues = [ ]
      # issue = Issue.new(3, {})
      # @@collection_of_issues << issue
