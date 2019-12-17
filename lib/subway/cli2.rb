@@ -23,13 +23,10 @@ class CLI
         puts
         puts "Elevator Issues"
         puts "1."
-        puts "2."
-        puts "3."
       elsif input == "2"
         puts
         puts "Escalator Issues"
         puts "1."
-        puts "2."
       elsif input == "list"
         menu
       elsif input == "exit"
@@ -62,7 +59,7 @@ class CLI
        puts "OK, let's give this another try..."
        puts
        menu
-    elsif 
+    elsif input == "exit"
       puts "exit"
       goodbye 
     else
