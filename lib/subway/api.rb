@@ -58,12 +58,16 @@ while count <= x.length-2
      puts eta
      puts eta.class
     
-     @@all << 
-     
+     @@all << self
+    
+     puts "@@all = #{@@all}"
+     puts "self = #{self}" 
      # @@collection_of_issues = [ ]
      # issue = Issue.new(3, {})
      # @@collection_of_issues << issue
+     puts "issue inspected is..."
      p issue
+     puts "issue class is..."
      p issue.class
    
      # puts @@collection_of_issues
