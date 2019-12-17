@@ -3,6 +3,8 @@ require 'httparty'
 
 class API
   
+@@all = [] 
+
 uri = URI('https://api.wmata.com/Incidents.svc/json/ElevatorIncidents')
 
 # Request parameters if needed them by putting this into coad below 'StationCode' => '{string}, but don't want station paramters because we want ALL the outages of all the escalators and elevators
@@ -58,23 +60,24 @@ while count <= x.length-2
      puts eta
      puts eta.class
     
-     @@all << self
+     @@all << [count, equipment, station, location, reason, eta]
     
-     puts "@@all = #{@@all}"
-     puts "self = #{self}" 
+    
+     
      # @@collection_of_issues = [ ]
      # issue = Issue.new(3, {})
      # @@collection_of_issues << issue
-     puts "issue inspected is..."
-     p issue
-     puts "issue class is..."
-     p issue.class
+    # puts "issue inspected is..."
+    # p issue
+    # puts "issue class is..."
+    # p issue.class
    
      # puts @@collection_of_issues
      # puts @@collection_of_issues.class
      # puts @@collection_of_issues.length
      puts
    end
+   puts "@@all = #{@@all}"
 end 
 
 
