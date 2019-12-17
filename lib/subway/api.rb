@@ -2,6 +2,9 @@ require 'net/http'
 require 'httparty'
 
 class API
+  
+@@all = []
+
 
 uri = URI('https://api.wmata.com/Incidents.svc/json/ElevatorIncidents')
 
@@ -43,14 +46,17 @@ while count <= x.length-2
      count += 1
      puts "Issue is an #{issue.class}."
      
-     equipment = "#{problem[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
-     station = "#{problem[4][13..100].delete('"')}" # STATION works flawlessly
-     location = "#{problem[5].delete_prefix('"LocationDescription""').delete_suffix('"').delete_prefix(" ")}" #LOCATION Works Flawlessly
-     reason = "#{problem[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
-     eta = "#{problem[12][27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
+     
+     equipment = "#{issue[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
+     station = "#{issue}" # STATION works flawlessly
+     location = "#{issue[5].delete_prefix('"LocationDescription""').delete_suffix('"').delete_prefix(" ")}" #LOCATION Works Flawlessly
+     reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
+     eta = "#{issue[12][27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
   
     #Takes the data and puts into a hash (now go make an object!)
+    
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
+    
     # puts info[:equipment], info[:station], info[:location]
      
     # equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
@@ -68,7 +74,7 @@ while count <= x.length-2
      eta = "Anticipated repair date: #{issue[10][15..25].delete('"')}" 
      puts eta
      puts eta.class
-     @@all << Issue.new(count, {:equipment, :station, :location, :reason, :eta})
+     @@all << Issue.new(count, info)
      puts
      puts
    end
