@@ -18,6 +18,7 @@ query = URI.encode_www_form({})
   end
 
 request = Net::HTTP::Get.new(uri.request_uri)
+
 # Request headers
 request['api_key'] = '365be576f6f24a35b7b226a751b3c476' # Yeah, I had to sign up to get this key. It ws worth it, so I didn't have to deal with data limitations from the demo key 
 # Request body
@@ -29,6 +30,7 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme ==  'https
 end
 
 #lets see what data is in here for now...
+
 outages = response.body
 x = outages.split("},").to_a
 # puts x.class # not needed any more, this was for testing purposes
@@ -67,7 +69,6 @@ while count <= x.length-2
      # puts @@collection_of_issues.length
      puts
    end
-  
 end 
 
 
