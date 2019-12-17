@@ -62,8 +62,11 @@ class Issue
     @@all
   end
 
+issue_1 = self.new("johnson", {})
+p issue_1
 
 end
+
 
 
 ## - below is other code, eventually need to take out - ## 
@@ -128,8 +131,11 @@ end
 #     #   puts "1. Elevator Issues"
 #     #   puts "2. Escalator Issues"
 #     # end 
-#   issue_1 = self.new # same as... Issue.new 
-#   issue_1.name = "Elevator Issue"
+
+
+
+# issue_1.name = "Elevator Issue"
+
 #   issue_1.location = "Anacostia"
 #   issue_1.problem = "Minor Repair"
 #   issue_1.exactlocation = "under the stairway before the street"
