@@ -2,7 +2,6 @@ class CLI
   
   def self.call
     input = nil
-    while input != "exit"
       puts
       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
       puts "1 - Elevators"       
@@ -10,19 +9,31 @@ class CLI
       puts "Which would you like to get more information about? Type 'exit' to leave the program. Type 'list' to see this again."
       puts
       input = gets.strip.downcase
-    
-      if input == "1" 
+      case input 
+      when "1"
         elevator
-      elsif input == "2"
-        escaltor
-      elsif input == "menu"
-        call
-      elsif input == "exit"
-        goodbye
-      else
+      when "2"
+        escaltor 
+      when "menu"
+        call 
+      when "exit"
+        goodbye 
+      else 
         input_makes_no_sense
-      end
-    end
+      end 
+      
+      # if input == "1" 
+      #   elevator
+      # elsif input == "2"
+      #   escaltor
+      # elsif input == "menu"
+      #   call
+      # elsif input == "exit"
+      #   goodbye
+      # else
+      #   input_makes_no_sense
+    
+    #end
   end 
   
   def self.elevator 
@@ -44,12 +55,15 @@ class CLI
     puts "Want to try again? Enter 'Y' for yes and 'N' [or any other input] for no..."
     input = nil
     input = gets.strip.downcase
-    if input == "y"
-      puts "OK, let's give this another try..."
-      menu
-    else 
-      puts "OK, later gator!"
+    case input
+    when "y", "Y", "yes", "yeah", "sure"
+      "OK, let's give this another try..."
+      call
+    when "n", "N", "no", "nah", "nope"
+      "OK, later gator!"
       goodbye 
+    else
+      goodbye
     end
   end
   
