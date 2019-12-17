@@ -1,6 +1,6 @@
 class CLI
   
-  def self.call
+  def call
     input = nil
       puts
       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
@@ -23,21 +23,21 @@ class CLI
       end 
   end 
   
-  def self.elevator 
+  def elevator 
     puts
     puts "This is where the Elevator issues go..."
     puts
     call
   end
   
-  def self.escaltor
+  def escaltor
     puts
     puts "This is where the Escalator issues go..."
     puts
     call
   end
   
-  def self.input_makes_no_sense
+  def input_makes_no_sense
     puts
     puts "I am not sure what you want."
     puts
@@ -56,12 +56,11 @@ class CLI
     end
   end
   
-  def self.goodbye 
+  def goodbye 
     puts "Goodbye! Come back later for update escalator and elevator outages!"
     puts
   end 
   
 end
 
-CLI.call
 
