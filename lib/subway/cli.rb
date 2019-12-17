@@ -59,6 +59,7 @@ class CLI
        puts "OK, let's give this another try..."
        puts
        menu
+       
     elsif input == "n"
       puts "you chose 'no'."
       goodbye
@@ -96,7 +97,6 @@ class CLI
 ###################################################################
   
   def self.goodbye 
-    
     puts "Goodbye! Come back later for update escaltor and elevator outages!"
   end 
 
