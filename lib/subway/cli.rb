@@ -11,7 +11,7 @@ class CLI
       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
       puts "1 - Elevators"       
       puts "2 - Escalators"
-      puts "Which would you like to get more information about? Type 'exit' to leave the program. Type list to see this again."
+      puts "Which would you like to get more information about? Type 'exit' to leave the program. Type 'list' to see this again."
       puts
       input = gets.strip.downcase
     
@@ -70,7 +70,7 @@ class CLI
       goodbye 
     end
   end 
-     
+end    
 # #   #   ##if input != "1" or "2"
 # #   # ##   puts "Please choose 1 or 2"
 # #   #   # if input.to_i > 0 
@@ -99,16 +99,16 @@ class CLI
     puts "Goodbye! Come back later for update escaltor and elevator outages!"
   end 
 
-  def self.list_of_issues
-    #@issues = issue.current 
-    #@issues.each.with_index(1) do | issue, i | #starts indexing at 1 
-     # puts "#{i}. #{issue}"
-      puts
-      puts "Current Metrorail Issues:"
-    #  puts # issue_1
-    #  puts # issue_2
-    #end 
-  end 
+  # def self.list_of_issues
+  #   #@issues = issue.current 
+  #   #@issues.each.with_index(1) do | issue, i | #starts indexing at 1 
+  #   # puts "#{i}. #{issue}"
+  #     puts
+  #     puts "Current Metrorail Issues:"
+  #   #  puts # issue_1
+  #   #  puts # issue_2
+  #   #end 
+  # end 
 
 #   # # what follows is a class method and self is refering the class itself (aka the CLI class)...
     
