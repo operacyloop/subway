@@ -70,6 +70,7 @@ while count <= x.length-2
      puts eta.class
      @@all << Issue.new(count, {:equipment, :station, :location, :reason, :eta})
      puts
+     puts
    end
    puts "@@all = #{@@all}"
 end 
