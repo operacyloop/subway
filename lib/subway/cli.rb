@@ -31,7 +31,7 @@ class CLI
         puts "1."
         puts "2."
       elsif input == "list"
-        list_of_issues 
+        menu
       elsif input == "exit"
         goodbye
       else
@@ -59,7 +59,6 @@ class CLI
        puts "OK, let's give this another try..."
        puts
        menu
-       
     elsif input == "n"
       puts "you chose 'no'."
       goodbye
@@ -119,7 +118,6 @@ class CLI
     
   def self.call
     puts "in the middle of the call method, a class method"
-    list_of_issues
     menu
     goodbye
   end
