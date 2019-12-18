@@ -48,10 +48,10 @@ while count <= x.length-2
      
      
      equipment = "#{issue[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
-     station = "#{issue[4]}" # STATION works flawlessly
+     station = "#{issue[4][14..30].delete('"')}" # STATION works flawlessly
      location = "#{issue[5].delete_prefix('"LocationDescription""').delete_suffix('"').delete_prefix(" ")}" #LOCATION Works Flawlessly
      reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
-     eta = "#{issue[12][27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
+     eta = "#{issue[12]}    #[27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
   
     #Takes the data and puts into a hash (now go make an object!)
     
