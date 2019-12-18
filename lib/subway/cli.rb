@@ -1,6 +1,8 @@
+
 class CLI
   
   def call
+    
     input = nil
       puts
       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
@@ -25,8 +27,9 @@ class CLI
   
   def elevator 
     puts
-    puts "This is where the Elevator issues go..."
-    puts
+    puts "Which elevator issue would you like to know more about?"
+    puts Issue.all
+    #input = gets.strip.downcase
     call
   end
   

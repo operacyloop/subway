@@ -1,11 +1,8 @@
 #!/usr/bin/env ruby 
-# uncomment above when you take off the .rb (since it's in the bin folder)
 
 # WAS: require_relative '../lib/subway' now...
 require_relative '../lib/subway.rb'
 
 require "bundler/setup"
-
-puts "Hello World!"
 
 CLI.new.call
