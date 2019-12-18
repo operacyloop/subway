@@ -34,13 +34,14 @@ end
 
 #lets see what data is in here for now...
 
-outages = response.body.slice! '{\"ElevatorIncidents\":['
+outages = response.body
+
 
 # want to subtract: "{\"ElevatorIncidents\":[
 # take this away and start unit: {\"UnitName\":\"
 # divide by: \",\"
 
-puts
+outages = outages[35..outages.size]
 p outages
 puts
 x = outages.split("},").to_a  # was x = outages.split("},").to_a
