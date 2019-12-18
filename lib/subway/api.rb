@@ -41,11 +41,25 @@ outages = response.body
 # take this away and start unit: {\"UnitName\":\"
 # divide by: \",\"
 
-outages = outages[22..outages.size-1].gsub!(":", ": ").gsub!(",", ", ")
-puts outages
-puts
+outages = outages[23..outages.size-1].gsub!(":", ": ").gsub!(",", ", ")
+#puts outages
+#puts
 x = outages.split("},").to_a  # was x = outages.split("},").to_a
 # puts x.class # not needed any more, this was for testing purposes
+# @@aall = []
+
+# def self.my_function(outages)
+#     outages.split("}, {").each do | chunk |
+#         #puts chunk
+#         #puts
+#         @@aall << chunk
+#     end
+# end
+
+# my_function(outages)
+
+# puts @@aall.class
+# puts @@aall[1].class
 
 count = 0
 
@@ -56,18 +70,17 @@ while count <= x.length-2
      # puts "Issue is an #{issue.class}."
      
      
-     equipment = "#{issue[1]}" #[10..100].delete('"').capitalize}" #PERFECT
-     issue2 = "#{issue[2]}"
-     issue3 = "#{issue[3]}"
-     station = "#{issue[4]}" #[14..30].delete('"')}" #PERFECT
-     location = "#{issue[5]}" #[22..69]
-     issue6 = "#{issue[6]}"
-     issue7 = "#{issue[7]}"
-     reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
-     issue9 = "#{issue[9]}"
-     issue10 = "#{issue[10]}"
-     issue11 = "#{issue[11]}"
-     eta = "#{issue[12]}"   #[27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
+     equipment = "#{issue[1][13..23].delete('"').capitalize}" #PERFECT
+     station = "#{issue[4][16..40].delete('"')}" #PERFECT
+     location = "#{issue[5][25..70]}"
+     
+    # issue6 = "#{issue[6]}"
+    # issue7 = "#{issue[7]}"
+    reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
+    # issue9 = "#{issue[9]}"
+    # issue10 = "#{issue[10]}"
+    # issue11 = "#{issue[11]}"
+    eta = "#{issue[12]}"   #[27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
      
      
     #Takes the data and puts into a hash (now go make an object!)
@@ -78,14 +91,14 @@ while count <= x.length-2
     puts "1 info[:equipment]... #{info[:equipment]}"
     puts "2 info[:station]... #{info[:station]}"
     puts "3 info[:location]... #{info[:location]}"
-    puts "4 info[:reason]... #{info[:reason]}"
-    puts "5 #{issue2}"
-    puts "6 #{issue3}"
-    puts "7 #{issue6}"
-    puts "8 #{issue7}"
-    puts "9 #{issue9}"
-    puts "10 #{issue10}"
-    puts "11 #{issue11}"
+    #puts "4 info[:reason]... #{info[:reason]}"
+    #puts "5 #{issue2}"
+    #puts "6 #{issue3}"
+    # puts "7 #{issue6}"
+    # puts "8 #{issue7}"
+    # puts "9 #{issue9}"
+    # puts "10 #{issue10}"
+    # puts "11 #{issue11}"
     
     # equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
     # puts equipment
@@ -109,3 +122,5 @@ while count <= x.length-2
    end
    #puts "@@all = #{@@all}"
 end 
+
+
