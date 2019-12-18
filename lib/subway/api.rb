@@ -47,12 +47,13 @@ while count <= x.length-2
      # puts "Issue is an #{issue.class}."
      
      
-     equipment = "#{issue[1][10..100].delete('"').capitalize}" #EQUIPMENT works flawlessly
-     station = "#{issue[4][14..30].delete('"')}" # STATION works flawlessly
-     location = "#{issue[5][22..64]}"
+     equipment = "#{issue[1][10..100].delete('"').capitalize}" #PERFECT
+     station = "#{issue[4][14..30].delete('"')}" #PERFECT
+     location = "#{issue[5]}" #[22..69]
      reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
      eta = "#{issue[12]}"   #[27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
-    
+     eta2 = "#{issue[11]}"
+     eta3 = "#{issue[10]}"
     #Takes the data and puts into a hash (now go make an object!)
     
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
@@ -63,9 +64,9 @@ while count <= x.length-2
     puts info[:station]
     puts "info[:location]..."
     puts info[:location]
-    puts "info[:eta]..."
-    puts info[:eta]
-     
+    puts "info[:reason]..."
+    puts info[:reason]
+    
     # equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
     # puts equipment
     
