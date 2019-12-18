@@ -34,38 +34,57 @@ end
 
 #lets see what data is in here for now...
 
-outages = response.body
-x = outages.split("},").to_a
+outages = response.body.slice! '{\"ElevatorIncidents\":['
+
+# want to subtract: "{\"ElevatorIncidents\":[
+# take this away and start unit: {\"UnitName\":\"
+# divide by: \",\"
+
+puts
+p outages
+puts
+x = outages.split("},").to_a  # was x = outages.split("},").to_a
 # puts x.class # not needed any more, this was for testing purposes
 
 count = 0
 
 while count <= x.length-2
-     issue = x[count].delete! '{}:'
+     issue = x[count] #.delete! '{}:'
      issue = issue.split(",")
      count += 1
      # puts "Issue is an #{issue.class}."
      
      
-     equipment = "#{issue[1][10..100].delete('"').capitalize}" #PERFECT
-     station = "#{issue[4][14..30].delete('"')}" #PERFECT
+     equipment = "#{issue[1]}" #[10..100].delete('"').capitalize}" #PERFECT
+     issue2 = "#{issue[2]}"
+     issue3 = "#{issue[3]}"
+     station = "#{issue[4]}" #[14..30].delete('"')}" #PERFECT
      location = "#{issue[5]}" #[22..69]
+     issue6 = "#{issue[6]}"
+     issue7 = "#{issue[7]}"
      reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
+     issue9 = "#{issue[9]}"
+     issue10 = "#{issue[10]}"
+     issue11 = "#{issue[11]}"
      eta = "#{issue[12]}"   #[27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
-     eta2 = "#{issue[11]}"
-     eta3 = "#{issue[10]}"
+     
+     
     #Takes the data and puts into a hash (now go make an object!)
     
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
     
-    puts "info[:equipment]..."
-    puts info[:equipment]
-    puts "info[:station]..."
-    puts info[:station]
-    puts "info[:location]..."
-    puts info[:location]
-    puts "info[:reason]..."
-    puts info[:reason]
+    puts "count: #{count}"
+    puts "1 info[:equipment]... #{info[:equipment]}"
+    puts "2 info[:station]... #{info[:station]}"
+    puts "3 info[:location]... #{info[:location]}"
+    puts "4 info[:reason]... #{info[:reason]}"
+    puts "5 #{issue2}"
+    puts "6 #{issue3}"
+    puts "7 #{issue6}"
+    puts "8 #{issue7}"
+    puts "9 #{issue9}"
+    puts "10 #{issue10}"
+    puts "11 #{issue11}"
     
     # equipment = "Equipment: #{issue[1][10..100].delete('"').capitalize}"
     # puts equipment
