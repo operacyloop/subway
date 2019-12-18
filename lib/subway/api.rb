@@ -41,8 +41,8 @@ outages = response.body
 # take this away and start unit: {\"UnitName\":\"
 # divide by: \",\"
 
-outages = outages[35..outages.size]
-p outages
+outages = outages[22..outages.size-1].gsub!(":", ": ").gsub!(",", ", ")
+puts outages
 puts
 x = outages.split("},").to_a  # was x = outages.split("},").to_a
 # puts x.class # not needed any more, this was for testing purposes
