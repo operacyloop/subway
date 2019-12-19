@@ -42,7 +42,7 @@ class CLI
    Issue.all.each.with_index(1) do | ish, i |
      puts " #{i} - #{ish.station} [#{ish.equipment}]"
    end
-   
+   puts "Enter the number that corresponds with the outage for more details..."
    input = gets.strip.downcase.to_i
    awesome = Issue.all[input-1]
      puts 
@@ -106,7 +106,6 @@ class CLI
    print_again = true
     while count < 1000
       if Issue.all[count] != nil
-        print "counting now... "
       else 
         if print_again == true 
           puts "COUNT = #{count}"
@@ -158,6 +157,9 @@ class CLI
       count += 1
     end
     puts array_of_escalator_issues.sort
+    puts
+    puts "Press any key to continue..."
+    press = gets
     call
   end
   
