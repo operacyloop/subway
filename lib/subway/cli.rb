@@ -42,6 +42,10 @@ class CLI
       puts " #{i} - #{ish.station} "
    end
    
+   input = 6
+   awesome = Issue.all[input-1]
+     puts  awesome.station
+    
    # ask for user input here ...  array.size
    
 #     while count < 1000
