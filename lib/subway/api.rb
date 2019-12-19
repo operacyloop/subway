@@ -33,10 +33,9 @@ class API
     location = "#{issue[5][25..70]}"
     reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
     eta = "#{issue[-1][30..39]}"  #PERFECT
-    puts eta
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
-     @@all << Issue.new(count, info)
-     puts
+    @@all << Issue.new(count, info)
+    puts
    end
 end 
 

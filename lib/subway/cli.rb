@@ -7,32 +7,47 @@ class CLI
       puts
       puts "Welcome to your go-to location for DC Subway Elevator and Escalator outages."
       puts "Which would you like to get more information about?"
-      puts "1 - Elevators"       
-      puts "2 - Escalators"
-      puts "Type 'tally' to get a tally of all all escalator and elevator issues."
-      puts "Type 'exit' to leave the program. Type 'list' to see this again."
-      puts "Type 'both' to see a list of stations that have both elevator and escaltor issues."
-      puts
+      puts "1 - Elevator issues."       
+      puts "2 - Escalator issues."
+      puts "3 - or 'tally'- to get a tally of all all escalator and elevator issues."
+      puts "4 - or 'ETA' - to see a list of estimated completion dates for the elevators and escalators."
+      puts "5 - or 'both' - to see a list of stations that have both elevator and escaltor issues."
+      puts "6 - or 'menu' - to see this complete list again."
+      puts "7 - or 'exit' - to leave the program. Type 'list' to see this again."
       input = gets.strip.downcase
       case input 
       when "1", "elevator", "elevators"
         elevator
       when "2", "escalator", "escaltors"
         escalator 
-      when "menu", "list"
+      when "menu", "list", "6"
         call 
       when "exit", "bye"
         goodbye 
       when "total"
         total
-      when "tally"
+      when "tally", "3"
          tally
-      when "both"
+      when "both", "5"
          both
+      when "eta", "4"
+        eta
       else 
         input_makes_no_sense
       end 
   end 
+  
+ def eta 
+   puts "Estimated repair dates..."
+   count = 0
+    while count < 1000
+      if Issue.all[count] != nil
+        puts "#{Issue.all[count].station} - #{Issue.all[count].equipment} - #{Issue.all[count].eta}"
+      end
+      count += 1
+    end
+   call
+ end 
   
  def both
    puts "Stations with both elevator and escalor issues:"
@@ -55,7 +70,7 @@ class CLI
         print "counting now... "
       else 
         if print_again == true 
-          puts "count = #{count}"
+          puts "COUNT = #{count}"
         end
         print_again = false
       end
@@ -73,7 +88,7 @@ class CLI
         if Issue.all[count].equipment == "Elevator"
           puts "#{Issue.all[count].station}"
         end
-        puts "count = #{count}"
+        #puts "count = #{count}"
       end
       count += 1
     end
@@ -90,7 +105,7 @@ class CLI
         if Issue.all[count].equipment == "Escalator"
           puts "#{Issue.all[count].station}"
         end
-        puts "count = #{count}"
+        #puts "count = #{count}"
       end
       count += 1
     end
