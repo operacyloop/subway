@@ -1,4 +1,3 @@
-
 class CLI
   
   def call
@@ -50,9 +49,44 @@ class CLI
  end 
   
  def both
-   puts "Stations with both elevator and escalor issues:"
-   puts "COMING SOON!"
-   call
+   puts
+   puts "Stations that have problems with both elevators AND escalators..."
+   count = 0
+   array_of_elevator_issues = []
+   array_of_escalator_issues = []
+    
+   #ELEVATOR ISSUES... 
+   while count < 1000
+     if Issue.all[count] != nil
+       if Issue.all[count].equipment == "Elevator"
+         array_of_elevator_issues << Issue.all[count].station
+         array_of_elevator_issues.uniq!
+       end
+     end
+      count += 1
+   end
+    
+    #ESCALATOR ISSUES...
+    while count < 1000
+      if Issue.all[count] != nil
+        if Issue.all[count].equipment == "Escalator"
+          array_of_escalator_issues << Issue.all[count].station
+          array_of_escalator_issues.uniq!
+        end
+      end
+      count += 1
+    end
+    
+    stations_with_both_out = array_of_elevator_issues & array_of_escalator_issues
+    puts stations_with_both_out.sort
+    if stations_with_both_out == nil
+      puts "There are NO Stations in the entire DC Subway system that have both escalators AND elevators out."
+    end
+    if stations_with_both_out != nil
+      puts "Not Nil"
+      puts stations_with_both_out
+    end
+    call
  end 
   
  def total
@@ -83,16 +117,18 @@ class CLI
     puts
     puts "Stations where there are ELEVATOR issues:"
     count = 0
+    array_of_elevator_issues = []
     while count < 1000
       if Issue.all[count] != nil
         if Issue.all[count].equipment == "Elevator"
-          puts "#{Issue.all[count].station}"
+          array_of_elevator_issues << Issue.all[count].station
+          array_of_elevator_issues.uniq!
         end
         #puts "count = #{count}"
       end
       count += 1
     end
-    #input = gets.strip.downcase
+    puts array_of_elevator_issues.sort
     call
   end
   
@@ -100,16 +136,17 @@ class CLI
     puts
     puts "Stations where there are ESCALATOR issues:"
     count = 0
+    array_of_escalator_issues = []
     while count < 1000
       if Issue.all[count] != nil
         if Issue.all[count].equipment == "Escalator"
-          puts "#{Issue.all[count].station}"
+          array_of_escalator_issues << Issue.all[count].station
+          array_of_escalator_issues.uniq!
         end
-        #puts "count = #{count}"
       end
       count += 1
     end
-    #input = gets.strip.downcase
+    puts array_of_escalator_issues.sort
     call
   end
   
