@@ -39,17 +39,17 @@ class CLI
    count = 0
    
    Issue.all.each.with_index(1) do | ish, i |
-     puts " #{i} - #{ish.station} "
+     puts " #{i} - #{ish.station} [#{ish.equipment}]"
    end
    
    input = gets.strip.downcase.to_i
    awesome = Issue.all[input-1]
-     puts awesome.station 
-     puts awesome.equipment
-     puts awesome.location
-     puts awesome.eta
-     puts awesome.reason
-     puts awesome.location
+     puts 
+     puts "DETAILS ON THIS #{awesome.equipment.capitalize} OUTAGE:"
+     puts "This is an #{awesome.equipment} problem at the #{awesome.station} Metrorail Station."
+     puts "The reason for this outage is that it is a #{awesome.reason},"
+     puts "and the estimated repair date is #{awesome.eta}."
+     puts "This #{awesome.equipment} outage can be found at the station #{awesome.location[21..100]}"
      puts
      puts "Press any key to continue"
      press = gets

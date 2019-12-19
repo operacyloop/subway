@@ -30,8 +30,8 @@ class API
     count += 1
     equipment = "#{issue[1][13..23].delete('"').capitalize}" #PERFECT
     station = "#{issue[4][16..40].delete('"')}" #PERFECT
-    location = "#{issue[5][25..70]}"
-    reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
+    location = "#{issue[-8][2..100].delete('"')}"
+    reason = "#{issue[-5][24..100].delete('"')}" #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
     eta = "#{issue[-1][30..39]}"  #PERFECT
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
     @@all << Issue.new(count, info)
