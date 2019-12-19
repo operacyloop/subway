@@ -37,14 +37,23 @@ class CLI
  def eta 
    puts "Estimated repair dates..."
    count = 0
-    while count < 1000
-      if Issue.all[count] != nil
-        puts "#{Issue.all[count].station} - #{Issue.all[count].equipment} - #{Issue.all[count].eta}"
-      end
-      count += 1
-    end
-   call
+   
+   Issue.all.each.with_index(1) do | ish, i |
+      puts " #{i} - #{ish.station} "
+   end
+   
+   # ask for user input here ...  array.size
+   
+#     while count < 1000
+#       if Issue.all[count] != nil
+#         puts "#{Issue.all[count].station} - #{Issue.all[count].equipment} - #{Issue.all[count].eta}"
+#       end
+#       count += 1
+#     end
+  call
  end 
+ 
+ #these are the Stations, puts stations... user picks station... then more details... number stations for easy pickin' (could be index or index +1)
   
  def both
    puts
