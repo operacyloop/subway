@@ -32,8 +32,8 @@ class API
     station = "#{issue[4][16..40].delete('"')}" #PERFECT
     location = "#{issue[5][25..70]}"
     reason = "#{issue[8]}" #[20..100] #it's getting fed the wrong data, that's why it can't parse it correctly; SKIP FOR NOW
-    eta = "#{issue[12]}"   #[27..36].to_s}" #its getting fed the wrong thing, why?! SKIP FOR NOW
-    
+    eta = "#{issue[-1][30..39]}"  #PERFECT
+    puts eta
     info = {equipment: equipment, station: station, location: location, reason: reason, eta: eta}
      @@all << Issue.new(count, info)
      puts
