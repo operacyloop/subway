@@ -21,7 +21,7 @@ class CLI
         escalator 
       when "menu", "list", "6"
         call 
-      when "exit", "bye"
+      when "exit", "bye", "7"
         goodbye 
       when "tally", "3"
          tally
