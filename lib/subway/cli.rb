@@ -77,20 +77,9 @@ class CLI
       end
       count2 += 1
     end
-    
-    puts array_of_elevator_issues.length
-    puts array_of_uppyuppy_issues.length
-    # puts array_of_elevator_issues & array_of_escalator_issues
-    # stations_with_both_out = array_of_elevator_issues & array_of_escalator_issues
-    # puts stations_with_both_out.sort
-    # if stations_with_both_out == nil
-    #   puts "There are NO Stations in the entire DC Subway system that have both escalators AND elevators out."
-    # end
-    # if stations_with_both_out != nil
-    #   puts "Not Nil"
-    #   puts stations_with_both_out
-    # end
-    call
+  
+   puts array_of_elevator_issues & array_of_uppyuppy_issues
+   call
  end 
   
  def total
