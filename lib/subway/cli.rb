@@ -15,7 +15,7 @@ class CLI
       when "1"
         elevator
       when "2"
-        escaltor 
+        escalator 
       when "menu", "list"
         call 
       when "exit"
@@ -25,15 +25,21 @@ class CLI
       end 
   end 
   
-  def elevator 
+ def elevator 
     puts
     puts "Which elevator issue would you like to know more about?"
-    puts Issue.all[1].station
+    while count < 40
+      count = 0
+      puts Issue.all[count].name
+      puts Issue.all[count].station
+      puts Issue.all[count].equipment
+      count += 1
+    end
     #input = gets.strip.downcase
     call
   end
   
-  def escaltor
+  def escalator
     puts
     puts "This is where the Escalator issues go..."
     puts
