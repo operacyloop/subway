@@ -9,7 +9,7 @@ class CLI
       puts "Which would you like to get more information about?"
       puts "1 - Elevators"       
       puts "2 - Escalators"
-      puts "Type 'tally' to get a tally of all stations that have an equipment issue"
+      puts "Type 'tally' to get a tally of all all escalator and elevator issues."
       puts "Type 'exit' to leave the program. Type 'list' to see this again."
       puts "Type 'both' to see a list of stations that have both elevator and escaltor issues."
       puts
@@ -41,12 +41,26 @@ class CLI
  end 
   
  def total
+   total_array = []
    puts "total number of stations with issues: XX"
    call
  end
  
-  def tally
-   puts "tally number of stations with issues: XX"
+ def tally
+   puts "tally number of elevator and escalator issues:"
+   count = 0
+   print_again = true
+    while count < 1000
+      if Issue.all[count] != nil
+        print "counting now... "
+      else 
+        if print_again == true 
+          puts "count = #{count}"
+        end
+        print_again = false
+      end
+      count += 1
+    end
    call
  end
    
@@ -59,6 +73,7 @@ class CLI
         if Issue.all[count].equipment == "Elevator"
           puts "#{Issue.all[count].station}"
         end
+        puts "count = #{count}"
       end
       count += 1
     end
@@ -67,7 +82,7 @@ class CLI
   end
   
   def escalator
-     puts
+    puts
     puts "Stations where there are ESCALATOR issues:"
     count = 0
     while count < 1000
@@ -75,6 +90,7 @@ class CLI
         if Issue.all[count].equipment == "Escalator"
           puts "#{Issue.all[count].station}"
         end
+        puts "count = #{count}"
       end
       count += 1
     end
