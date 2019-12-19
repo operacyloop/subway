@@ -28,7 +28,7 @@ class CLI
   def elevator 
     puts
     puts "Which elevator issue would you like to know more about?"
-    puts Issue.all
+    puts Issue.all[1].station
     #input = gets.strip.downcase
     call
   end
