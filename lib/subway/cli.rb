@@ -46,8 +46,9 @@ class CLI
    input = gets.strip.downcase.to_i
    awesome = Issue.all[input-1]
      puts 
+     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
      puts "Details on this #{awesome.station} #{awesome.equipment} outage:"
-     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
      puts "This is an #{awesome.equipment.downcase} problem at the #{awesome.station} Metrorail Station."
      puts "The reason for this outage is that it is a #{awesome.reason},"
      puts "and the estimated repair date is #{awesome.eta}."
