@@ -10,7 +10,7 @@ class CLI
       puts "2 - Escalator issues."
       puts "3 - or 'tally'- to get a tally of all all escalator and elevator issues."
       puts "4 - or 'ETA' - to see a list of estimated completion dates for the elevators and escalators."
-      puts "5 - or 'both' - to see a list of stations that have both elevator and escaltor issues."
+      puts "5 - or 'both' - to see a list of stations that have both elevator and escalator issues."
       puts "6 - or 'menu' - to see this complete list again."
       puts "7 - or 'exit' - to leave the program. Type 'list' to see this again."
       input = gets.strip.downcase
@@ -52,8 +52,9 @@ class CLI
    puts
    puts "Stations that have problems with both elevators AND escalators..."
    count = 0
+   count2 = 0
    array_of_elevator_issues = []
-   array_of_escalator_issues = []
+   array_of_uppyuppy_issues = []
     
    #ELEVATOR ISSUES... 
    while count < 1000
@@ -63,29 +64,32 @@ class CLI
          array_of_elevator_issues.uniq!
        end
      end
-      count += 1
+     count += 1
    end
     
     #ESCALATOR ISSUES...
-    while count < 1000
-      if Issue.all[count] != nil
-        if Issue.all[count].equipment == "Escalator"
-          array_of_escalator_issues << Issue.all[count].station
-          array_of_escalator_issues.uniq!
+    while count2 < 1000
+      if Issue.all[count2] != nil
+        if Issue.all[count2].equipment == "Escalator"
+          array_of_uppyuppy_issues << Issue.all[count2].station
+          array_of_uppyuppy_issues.uniq!
         end
       end
-      count += 1
+      count2 += 1
     end
     
-    stations_with_both_out = array_of_elevator_issues & array_of_escalator_issues
-    puts stations_with_both_out.sort
-    if stations_with_both_out == nil
-      puts "There are NO Stations in the entire DC Subway system that have both escalators AND elevators out."
-    end
-    if stations_with_both_out != nil
-      puts "Not Nil"
-      puts stations_with_both_out
-    end
+    puts array_of_elevator_issues.length
+    puts array_of_uppyuppy_issues.length
+    # puts array_of_elevator_issues & array_of_escalator_issues
+    # stations_with_both_out = array_of_elevator_issues & array_of_escalator_issues
+    # puts stations_with_both_out.sort
+    # if stations_with_both_out == nil
+    #   puts "There are NO Stations in the entire DC Subway system that have both escalators AND elevators out."
+    # end
+    # if stations_with_both_out != nil
+    #   puts "Not Nil"
+    #   puts stations_with_both_out
+    # end
     call
  end 
   
