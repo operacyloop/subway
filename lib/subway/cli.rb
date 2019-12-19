@@ -23,8 +23,6 @@ class CLI
         call 
       when "exit", "bye"
         goodbye 
-      when "total"
-        total
       when "tally", "3"
          tally
       when "both", "5"
@@ -50,7 +48,6 @@ class CLI
   
  def both
    puts
-   puts "Stations that have problems with both elevators AND escalators..."
    count = 0
    count2 = 0
    array_of_elevator_issues = []
@@ -77,16 +74,14 @@ class CLI
       end
       count2 += 1
     end
-  
-   puts array_of_elevator_issues & array_of_uppyuppy_issues
+   puts "Info on Stations with elevator and escalator issues:"
+   puts "* #{array_of_elevator_issues.length} stations have elevator issues."
+   puts "* #{array_of_uppyuppy_issues.length} stations have escalator issues."
+   both_issues =  array_of_elevator_issues & array_of_uppyuppy_issues
+   puts "* #{both_issues.length} have both elevator and escalator issues. These are those stations:"
+   puts both_issues
    call
  end 
-  
- def total
-   total_array = []
-   puts "total number of stations with issues: XX"
-   call
- end
  
  def tally
    puts "tally number of elevator and escalator issues:"
@@ -163,6 +158,7 @@ class CLI
   end
   
   def goodbye 
+    puts
     puts "Goodbye! Come back later for update escalator and elevator outages!"
     puts
   end 
