@@ -9,7 +9,7 @@ class CLI
       puts "1 - Elevator issues."       
       puts "2 - Escalator issues."
       puts "3 - or 'tally'- to get a tally of all all escalator and elevator issues."
-      puts "4 - or 'ETA' - to see a list of estimated completion dates for the elevators and escalators."
+      puts "4 - or 'details' - to see a list of issues by station, and see more details if you wish."
       puts "5 - or 'both' - to see a list of stations that have both elevator and escalator issues."
       puts "6 - or 'menu' - to see this complete list again."
       puts "7 - or 'exit' - to leave the program. Type 'list' to see this again."
@@ -27,7 +27,7 @@ class CLI
          tally
       when "both", "5"
          both
-      when "eta", "4"
+      when "eta", "4", 'details'
         eta
       else 
         input_makes_no_sense
@@ -35,7 +35,8 @@ class CLI
   end 
   
  def eta 
-   puts "Estimated repair dates..."
+   puts
+   puts "Details and estimated repair dates..."
    count = 0
    
    Issue.all.each.with_index(1) do | ish, i |
@@ -45,27 +46,18 @@ class CLI
    input = gets.strip.downcase.to_i
    awesome = Issue.all[input-1]
      puts 
-     puts "DETAILS ON THIS #{awesome.equipment.capitalize} OUTAGE:"
-     puts "This is an #{awesome.equipment} problem at the #{awesome.station} Metrorail Station."
+     puts "Details on this #{awesome.station} #{awesome.equipment} outage:"
+     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+     puts "This is an #{awesome.equipment.downcase} problem at the #{awesome.station} Metrorail Station."
      puts "The reason for this outage is that it is a #{awesome.reason},"
      puts "and the estimated repair date is #{awesome.eta}."
-     puts "This #{awesome.equipment} outage can be found at the station #{awesome.location[21..100]}"
+     puts "This #{awesome.equipment.downcase} outage can be found at the" 
+     puts "station #{awesome.location.downcase[21..100]}."
      puts
-     puts "Press any key to continue"
+     puts "Press any key to continue..."
      press = gets
-     
-   # ask for user input here ...  array.size
-   
-#     while count < 1000
-#       if Issue.all[count] != nil
-#         puts "#{Issue.all[count].station} - #{Issue.all[count].equipment} - #{Issue.all[count].eta}"
-#       end
-#       count += 1
-#     end
   call
  end 
- 
- #these are the Stations, puts stations... user picks station... then more details... number stations for easy pickin' (could be index or index +1)
   
  def both
    puts
@@ -101,6 +93,9 @@ class CLI
    both_issues =  array_of_elevator_issues & array_of_uppyuppy_issues
    puts "* #{both_issues.length} have both elevator and escalator issues. These are those stations:"
    puts both_issues
+   puts 
+   puts "Press any key to continue..."
+   press = gets
    call
  end 
  
@@ -118,7 +113,10 @@ class CLI
         print_again = false
       end
       count += 1
-    end
+   end
+   puts
+   puts "Press any key to continue..."
+   press = gets
    call
  end
    
@@ -138,6 +136,9 @@ class CLI
       count += 1
     end
     puts array_of_elevator_issues.sort
+    puts
+    puts "Press any key to continue..."
+    press = gets
     call
   end
   
