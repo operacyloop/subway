@@ -39,13 +39,21 @@ class CLI
    count = 0
    
    Issue.all.each.with_index(1) do | ish, i |
-      puts " #{i} - #{ish.station} "
+     puts " #{i} - #{ish.station} "
    end
    
-   input = 6
+   input = gets.strip.downcase.to_i
    awesome = Issue.all[input-1]
-     puts  awesome.station
-    
+     puts awesome.station 
+     puts awesome.equipment
+     puts awesome.location
+     puts awesome.eta
+     puts awesome.reason
+     puts awesome.location
+     puts
+     puts "Press any key to continue"
+     press = gets
+     
    # ask for user input here ...  array.size
    
 #     while count < 1000
