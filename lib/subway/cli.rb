@@ -51,7 +51,7 @@ class CLI
   
  def both
    puts "Stations with both elevator and escalor issues:"
-   puts "hardcoded list here"
+   puts "COMING SOON!"
    call
  end 
   

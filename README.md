@@ -17,6 +17,13 @@ And then execute:
 Or install it yourself as:
 
     $ gem install subway
+    
+MY WAY of doing it:
+
+    Clone is using >> git clone git@github.com:operacyloop/subway.git
+    Load the proper directory >> cd subway
+    Install all the other stuff >> bundle install
+    The run from the command line >> ruby bin/run
 
 ## Usage
 
